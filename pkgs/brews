@@ -1,0 +1,13 @@
+coreutils
+direnv
+ffmpeg
+findutils
+git
+hivemind
+htop
+httpie
+openssl
+tldr
+vim
+wget
+zsh

@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# import helpers
+source `dirname $0`/helpers
+
+# Install brew
+function setup_env {
+  einf "Linking shell configs"
+  link $DOTFILES_SHELL/functions ~/.functions.sh
+  link $DOTFILES_SHELL/exports ~/.exports.sh
+  link $DOTFILES_SHELL/aliases ~/.aliases.sh
+  link $DOTFILES_SHELL/antigen ~/.antigen.sh
+  link $DOTFILES_SHELL/nvm ~/.nvm.sh
+  link $DOTFILES_SHELL/profile ~/.profile
+  link $DOTFILES_SHELL/zshrc ~/.zshrc
+
+  einf "Linking editor configs"
+  # VSCode Configuration File, attempt to remove existing settings and link ours
+  mv $HOME/Library/Application\ Support/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json.bak
+  link $DOTFILES_CONFIGS/vscode.json $HOME/Library/Application\ Support/Code/User/settings.json
+
+  # Karabiner config
+  mv $HOME/.config/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json.bak
+  link $DOTFILES_CONFIGS/karabiner.json $HOME/.config/karabiner/karabiner.json
+
+  einf "Linking github configs"
+  link $DOTFILES_SHELL/gitconfig ~/.gitconfig
+  link $DOTFILES_SHELL/gitignore ~/.gitignore
+}
+
+askdo setup_env "Setup environment?"

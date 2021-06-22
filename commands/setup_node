@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# import helpers
+source `dirname $0`/helpers
+
+function setup_node {
+  if [ ! type "nvm" > /dev/null 2>&1 ]; then
+    err "NVM must be installed first..."; exit 1
+  fi
+
+  einf "Load nvm"
+  if [ -s "$NVM_DIR/nvm.sh" ]; then
+    \. "$HOME/.nvm/nvm.sh"
+  fi
+
+  einf "Installing latest LTS node"
+  nvm install --lts
+
+  if ! type "yarn" > /dev/null 2>&1; then
+    einf "Installing yarn"
+    npm i yarn -g
+  else
+    printf "yarn already installed... skipping\n"
+  fi
+
+  einf "Installing global NPM packages"
+  cat $NPM_PACKAGES | \
+  while read PACKAGE; do
+    printf "Installing $PACKAGE... "
+    yarn global add $PACKAGE
+  done
+}
+
+askdo setup_node "Setup node installation?"

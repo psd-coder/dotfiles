@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# import helpers
+source `dirname $0`/helpers
+
+# Install brew
+function install_managers {
+  if type "antigen" > /dev/null 2>&1; then
+    printf "antigen already installed... skipping\n"
+  else
+    einf "Installing antigen"
+    git clone https://github.com/zsh-users/antigen ~/.zsh-antigen
+  fi
+
+  if type "nvm" > /dev/null 2>&1; then
+    printf "nvm already installed... skipping\n"
+  else
+    einf "Installing nvm"
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+  fi
+}
+
+askdo install_managers "Install managers (antigen / nvm)?"

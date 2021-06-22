@@ -1,0 +1,35 @@
+# System Management
+alias reload='exec /bin/zsh -l'
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
+
+# Navigation
+alias ..="cd .."
+
+# Productivity
+alias h='hivemind'
+
+# Docker management
+alias dp='docker ps'
+alias dpa='docker ps -a'
+alias dpaq='docker ps -a -q'
+alias di='docker images'
+alias diaq='docker images -a -q'
+alias dstop-all='docker stop $(dpaq)'
+alias drm-all='docker rm $(dpaq)'
+alias drmv-all='docker rm -v $(dpaq)'
+alias drmi-all='docker rmi $(diaq)'
+
+# Stop all images
+alias ddown='dstop-all && drm-all'
+
+# Clean all docker containers & images
+alias dclean='dstop-all && drm-all && drmi-all'
+
+# Run interactive container, e.g., $dki base /bin/bash
+alias dki="docker run -i -t -P"
+
+# Bash into running container
+dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
+
+# Aliases
+aliases() { alias | grep $1 | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
