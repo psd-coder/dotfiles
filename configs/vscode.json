@@ -10,6 +10,7 @@
   ],
   "editor.scrollBeyondLastLine": false,
   "editor.snippetSuggestions": "top",
+  "editor.bracketPairColorization.enabled": true,
   "editor.tabSize": 2,
   "explorer.autoReveal": false,
   "files.autoSave": "afterDelay",
