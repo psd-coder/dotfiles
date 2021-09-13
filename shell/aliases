@@ -31,5 +31,9 @@ alias dki="docker run -i -t -P"
 # Bash into running container
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 
+alias grep-projects='_grepProjects() { grep -i -R --exclude-dir={node_modules,build,public,static,webpack,tmp,.cache,dist,dql,.local_data,jspm_packages,.yarn,vendor,.next} --include={\*.js,\*.jsx,\*.ts,\*.tsx} $1 ~/projects }; _grepProjects'
+
 # Aliases
 aliases() { alias | grep $1 | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
+
+
