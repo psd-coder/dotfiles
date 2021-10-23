@@ -76,5 +76,11 @@
   },
   "workbench.colorTheme": "Plastic - deprioritised punctuation",
   "security.workspace.trust.untrustedFiles": "open",
-  "redhat.telemetry.enabled": false
+"redhat.telemetry.enabled": false,
+"[postcss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[xml]": {
+    "editor.defaultFormatter": "DotJoshJohnson.xml"
+}
 }
