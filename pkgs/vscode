@@ -1,9 +1,11 @@
 Anjali.clipboard-history
 Arjun.swagger-viewer
 bierner.markdown-preview-github-styles
+bradlc.vscode-tailwindcss
 bung87.vscode-gemfile
 bungcip.better-toml
 christian-kohler.path-intellisense
+clinyong.vscode-css-modules
 coderfee.open-html-in-browser
 CoenraadS.disableligatures
 cssho.vscode-svgviewer
@@ -12,6 +14,7 @@ DotJoshJohnson.xml
 eamodio.gitlens
 EditorConfig.EditorConfig
 esbenp.prettier-vscode
+file-icons.file-icons
 formulahendry.auto-rename-tag
 howardzuo.vscode-npm-dependency
 karunamurti.haml
@@ -29,7 +32,6 @@ TabNine.tabnine-vscode
 Tyriar.sort-lines
 vayan.haml
 VisualStudioExptTeam.vscodeintellicode
-vscode-icons-team.vscode-icons
 WakaTime.vscode-wakatime
 wayou.vscode-todo-highlight
 will-stone.plastic
