@@ -12,6 +12,7 @@ source $HOME/.antigen.sh
 source $HOME/.aliases.sh
 source ~/.iterm2_shell_integration.zsh
 eval "$(direnv hook zsh)" # Direnv hook
+eval "$(navi widget zsh)" # Navi shell widget, it is assigned to Ctrl+G
 
 # ZSH options
 unsetopt inc_append_history # Do not share shell history between sessions
