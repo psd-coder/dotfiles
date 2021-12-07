@@ -18,7 +18,3 @@ antigen theme romkatv/powerlevel10k
 # Apply all
 antigen apply
 
-
-
-
-
