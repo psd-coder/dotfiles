@@ -5,12 +5,12 @@ install:
 	@${MAKE} install_brew
 	@${MAKE} install_packages
 	@${MAKE} install_cask
-	@${MAKE} install_apps
 	@${MAKE} install_managers
 	@${MAKE} install_vscode_extensions
 	@${MAKE} setup_env
 	@${MAKE} setup_node
 	@${MAKE} setup_os
+	@${MAKE} install_apps
 
 install_xcode_devtools:
 	@sh ./commands/install_xcode_devtools
