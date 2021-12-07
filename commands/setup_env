@@ -20,6 +20,7 @@ function setup_env {
   link $DOTFILES_SHELL/nvm ~/.nvm.sh
   link $DOTFILES_SHELL/profile ~/.profile
   link $DOTFILES_SHELL/zshrc ~/.zshrc
+  link $DOTFILES_SHELL/p10k.zsh ~/.p10k.zsh
 
   einf "Linking editor configs"
   # VSCode Configuration Files, attempt to remove existing settings and link ours
