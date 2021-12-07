@@ -11,12 +11,15 @@ function install_brew {
   fi
 
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
+  # echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/psdcoder/.zprofile
+  # eval "$(/opt/homebrew/bin/brew shellenv)"
   if ! type "brew" > /dev/null; then
     eerr "Brew failed to install"; exit 1
   fi
 
   einf "Brew installed successfully"
+
+  if is_m1_mac; then sudo softwareupdate --install-rosetta; fi
 }
 
 askdo install_brew "Install brew?"
