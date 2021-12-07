@@ -12,7 +12,7 @@ SCREENSHOT_DIR=$HOME/Screenshots
 [ -d $SCREENSHOT_DIR ] || mkdir $SCREENSHOT_DIR
 defaults write com.apple.screencapture location $SCREENSHOT_DIR
 defaults write com.apple.screencapture type -string "png"
-#defaults write com.apple.screencapture disable-shadow -bool true
+defaults write com.apple.screencapture disable-shadow -bool true
 
 # Disabled Dashboard
 defaults write com.apple.dashboard mcx-disabled -boolean YES && killall Dock
