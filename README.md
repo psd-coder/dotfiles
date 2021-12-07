@@ -13,3 +13,4 @@ make install
 ## Manual settings:
 
 * Import iStat Menus settings from `configs/iStatMenusSettings.ismp`
+* Setup iterm2 to use configuration from the folder: Preferences > General > Preferences: `~/.dotfiles/configs`
