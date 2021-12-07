@@ -22,10 +22,11 @@ function setup_env {
   link $DOTFILES_SHELL/zshrc ~/.zshrc
 
   einf "Linking editor configs"
-  # VSCode Configuration File, attempt to remove existing settings and link ours
+  # VSCode Configuration Files, attempt to remove existing settings and link ours
   mv $HOME/Library/Application\ Support/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json.bak
-  link $DOTFILES_CONFIGS/vscode.json $HOME/Library/Application\ Support/Code/User/settings.json
-
+  link $DOTFILES_CONFIGS/vscode-settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+  mv $HOME/Library/Application\ Support/Code/User/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json.bak
+  link $DOTFILES_CONFIGS/vscode-keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
   # Karabiner config
   mv $HOME/.config/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json.bak
   link $DOTFILES_CONFIGS/karabiner.json $HOME/.config/karabiner/karabiner.json
