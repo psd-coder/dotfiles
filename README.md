@@ -12,6 +12,7 @@ make install
 
 ## Manual settings:
 
+* Install Logitech Options for correct mouse work, otherwise sometimes strange scroll bugs happen
 * Copy SSH keys or create new ones
 * Import iStat Menus settings from `configs/iStatMenusSettings.ismp`
 * Setup iterm2 to use configuration from the folder: Preferences > General > Preferences: `~/.dotfiles/configs`
