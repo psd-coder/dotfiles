@@ -44,7 +44,7 @@
                         ]
                     },
                     {
-                        "description": "Disable Command-Shift-Option-Control-Period (.)",
+                        "description": "Disable Command-Shift-Option-Control-Period to f19 (avoid System Diagnostics)",
                         "manipulators": [
                           {
                             "type": "basic",
@@ -58,12 +58,15 @@
                                   "control"
                                 ]
                               }
+                            },
+                            "to": {
+                                "key_code": "f19"
                             }
                           }
                         ]
                       },
                       {
-                        "description": "Disable Command-Shift-Option-Control-Comma (,)",
+                        "description": "Disable Command-Shift-Option-Control-Comma to f18 (avoid System Diagnostics)",
                         "manipulators": [
                           {
                             "type": "basic",
@@ -77,6 +80,31 @@
                                   "control"
                                 ]
                               }
+                            },
+                            "to": {
+                                "key_code": "f18"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "description": "Disable Command-Shift-Option-Control-W to f17 (avoid Wifi Diagnostics)",
+                        "manipulators": [
+                          {
+                            "type": "basic",
+                            "from": {
+                              "key_code": "w",
+                              "modifiers": {
+                                "mandatory": [
+                                  "command",
+                                  "shift",
+                                  "option",
+                                  "control"
+                                ]
+                              }
+                            },
+                            "to": {
+                                "key_code": "f17"
                             }
                           }
                         ]

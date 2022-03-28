@@ -30,7 +30,7 @@ function setup_env {
   link $DOTFILES_CONFIGS/vscode-keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
   # Karabiner config
   mv $HOME/.config/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json.bak
-  link $DOTFILES_CONFIGS/karabiner.json $HOME/.config/karabiner/karabiner.json
+  link $DOTFILES_CONFIGS/karabiner $HOME/.config/karabiner/
 
   einf "Linking github configs"
   link $DOTFILES_SHELL/gitconfig ~/.gitconfig
