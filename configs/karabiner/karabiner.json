@@ -4,7 +4,8 @@
         "show_in_fn_bar": true,
         "show_in_menu_bar": true,
         "show_profile_name_in_fn_bar": false,
-        "show_profile_name_in_menu_bar": false
+        "show_profile_name_in_menu_bar": false,
+        "unsafe_ui": false
     },
     "profiles": [
         {
@@ -46,69 +47,69 @@
                     {
                         "description": "Disable Command-Shift-Option-Control-Period to f19 (avoid System Diagnostics)",
                         "manipulators": [
-                          {
-                            "type": "basic",
-                            "from": {
-                              "key_code": "period",
-                              "modifiers": {
-                                "mandatory": [
-                                  "command",
-                                  "shift",
-                                  "option",
-                                  "control"
-                                ]
-                              }
-                            },
-                            "to": {
-                                "key_code": "f19"
+                            {
+                                "from": {
+                                    "key_code": "period",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command",
+                                            "shift",
+                                            "option",
+                                            "control"
+                                        ]
+                                    }
+                                },
+                                "to": {
+                                    "key_code": "f19"
+                                },
+                                "type": "basic"
                             }
-                          }
                         ]
-                      },
-                      {
+                    },
+                    {
                         "description": "Disable Command-Shift-Option-Control-Comma to f18 (avoid System Diagnostics)",
                         "manipulators": [
-                          {
-                            "type": "basic",
-                            "from": {
-                              "key_code": "comma",
-                              "modifiers": {
-                                "mandatory": [
-                                  "command",
-                                  "shift",
-                                  "option",
-                                  "control"
-                                ]
-                              }
-                            },
-                            "to": {
-                                "key_code": "f18"
+                            {
+                                "from": {
+                                    "key_code": "comma",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command",
+                                            "shift",
+                                            "option",
+                                            "control"
+                                        ]
+                                    }
+                                },
+                                "to": {
+                                    "key_code": "f18"
+                                },
+                                "type": "basic"
                             }
-                          }
                         ]
-                      },
-                      {
+                    },
+                    {
                         "description": "Disable Command-Shift-Option-Control-W to f17 (avoid Wifi Diagnostics)",
                         "manipulators": [
-                          {
-                            "type": "basic",
-                            "from": {
-                              "key_code": "w",
-                              "modifiers": {
-                                "mandatory": [
-                                  "command",
-                                  "shift",
-                                  "option",
-                                  "control"
-                                ]
-                              }
-                            },
-                            "to": {
-                                "key_code": "f17"
+                            {
+                                "from": {
+                                    "key_code": "w",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command",
+                                            "shift",
+                                            "option",
+                                            "control"
+                                        ]
+                                    }
+                                },
+                                "to": {
+                                    "key_code": "f17"
+                                },
+                                "type": "basic"
                             }
-                          }
                         ]
-                      },
+                    },
                     {
                         "description": "HyperKey + f to Escape",
                         "manipulators": [
@@ -274,7 +275,8 @@
                     },
                     "ignore": true,
                     "manipulate_caps_lock_led": false,
-                    "simple_modifications": []
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
                 },
                 {
                     "disable_built_in_keyboard_if_exists": false,
@@ -287,7 +289,8 @@
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
-                    "simple_modifications": []
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
                 },
                 {
                     "disable_built_in_keyboard_if_exists": false,
@@ -301,6 +304,16 @@
                     "ignore": false,
                     "manipulate_caps_lock_led": false,
                     "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "application"
+                            },
+                            "to": [
+                                {
+                                    "apple_vendor_top_case_key_code": "keyboard_fn"
+                                }
+                            ]
+                        },
                         {
                             "from": {
                                 "key_code": "left_command"
@@ -330,18 +343,9 @@
                                     "key_code": "right_command"
                                 }
                             ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "application"
-                            },
-                            "to": [
-                                {
-                                    "apple_vendor_top_case_key_code": "keyboard_fn"
-                                }
-                            ]
                         }
-                    ]
+                    ],
+                    "treat_as_built_in_keyboard": false
                 },
                 {
                     "disable_built_in_keyboard_if_exists": false,
@@ -354,7 +358,50 @@
                     },
                     "ignore": true,
                     "manipulate_caps_lock_led": true,
-                    "simple_modifications": []
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 834,
+                        "vendor_id": 1452
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": false,
+                        "is_pointing_device": true,
+                        "product_id": 834,
+                        "vendor_id": 1452
+                    },
+                    "ignore": true,
+                    "manipulate_caps_lock_led": false,
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 640,
+                        "vendor_id": 13364
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
                 }
             ],
             "fn_function_keys": [
