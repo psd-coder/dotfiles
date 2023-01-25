@@ -19,6 +19,9 @@ export EDITOR='vim';
 export NODE_REPL_HISTORY=~/.node_history; # Persistent REPL history for node
 export NODE_REPL_HISTORY_SIZE='32768'; # Allow 32^3 entries; default is 1000
 
+# PNPM
+export PNPM_HOME="$HOME/Library/pnpm"
+
 # Path Sources
 if is_m1_mac; then path_prepend /opt/homebrew/bin; fi
 path_prepend /usr/local/bin/
@@ -27,3 +30,4 @@ path_prepend "$(brew --prefix)/opt/coreutils/libexec/gnubin"
 path_prepend "$(yarn global bin)"
 path_prepend "$(yarn global dir)/node_modules/.bin"
 path_prepend "./node_modules/.bin"
+path_prepend $PNPM_HOME
