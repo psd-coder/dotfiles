@@ -1,11 +1,10 @@
-function is_m1_mac {
+is_m1_mac() {
   if [[ "$(arch)" == 'arm64' ]]; then
     return 0
   else 
     return 1
   fi
 }
-
 
 path_append() {
   for ARG in "$@"
@@ -23,4 +22,8 @@ path_prepend() {
         PATH="$ARG${PATH:+":$PATH"}"
     fi
   done
+}
+
+grep-projects() {
+  grep -i -R --exclude-dir={node_modules,build,public,static,webpack,tmp,.cache,dist,dql,.local_data,jspm_packages,.yarn,vendor,.next,storybook-static} --include={\*.js,\*.jsx,\*.ts,\*.tsx} $1 ~/projects
 }
