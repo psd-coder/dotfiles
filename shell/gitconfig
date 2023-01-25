@@ -18,7 +18,6 @@
     rbc         = rebase --continue
     lg          = log --graph --date=short --branches --pretty=format:'%C(yellow)%h%C(reset) %ad | %C(75)%s%C(reset) %C(yellow)%d%C(reset) [%an]'
     unstage     = restore --staged .
-    sweep       = git branch -v | awk '$3 == "[gone]" { print $1 }' | xargs git branch -D
 
 [color]
     diff        = true 

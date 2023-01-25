@@ -27,3 +27,10 @@ path_prepend() {
 grep-projects() {
   grep -i -R --exclude-dir={node_modules,build,public,static,webpack,tmp,.cache,dist,dql,.local_data,jspm_packages,.yarn,vendor,.next,storybook-static} --include={\*.js,\*.jsx,\*.ts,\*.tsx} $1 ~/projects
 }
+
+# Removes  Git branches that have been merged into master.
+git-sweep() {
+  git fetch --prune && for branch in $(git for-each-ref --format='%(if:equals=[gone])%(upstream:track)%(then)%(refname:short)%(end)' refs/heads); do git branch -D $branch; done
+}
+
+
