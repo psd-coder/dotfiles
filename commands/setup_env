@@ -27,7 +27,8 @@ function setup_env {
   mv $HOME/Library/Application\ Support/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json.bak
   link $DOTFILES_CONFIGS/vscode-settings.json $HOME/Library/Application\ Support/Code/User/settings.json
   mv $HOME/Library/Application\ Support/Code/User/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json.bak
-  link $DOTFILES_CONFIGS/vscode-keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
+  mv $HOME/Library/Application\ Support/Code/User/snippets/vscode.code-snippets $HOME/Library/Application\ Support/Code/User/snippets/vscode.code-snippets.bak
+  link $DOTFILES_CONFIGS/vscode.code-snippets $HOME/Library/Application\ Support/Code/User/snippets/vscode.code-snippets
   # Karabiner config
   mv $HOME/.config/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json.bak
   link $DOTFILES_CONFIGS/karabiner $HOME/.config/karabiner/
