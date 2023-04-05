@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# import helpers
+source `dirname $0`/helpers
+
+# Install brew bundle
+function install_brew_bundle {
+  if ! type "brew" > /dev/null; then
+    eerr "Brew must be installed first..."; exit 1
+  fi
+
+  einf "Updating brew"
+  brew update
+  sudokeepalive
+  
+  einf "Installing brew bundle (taps & casks & brews & apps)"
+  brew bundle --file "$BREW_BUNDLE_FILE"
+}
+
+askdo install_brew_bundle "Install brew bundle?"
