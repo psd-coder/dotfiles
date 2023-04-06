@@ -1,4 +1,4 @@
-.PHONY: install install_brew install_brew_bundle install_managers install_vscode_extensions setup_env setup_node setup_os uninstall
+.PHONY: install install_brew install_brew_bundle install_managers install_vscode_extensions setup_env setup_node setup_os backup uninstall
 
 install:
 	@${MAKE} install_xcode_devtools
@@ -33,6 +33,9 @@ setup_node:
 
 setup_os:
 	@sh ./commands/setup_os
+
+backup:
+	@sh ./commands/backup
 
 uninstall:
 	@sh ./commands/uninstall
