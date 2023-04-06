@@ -29,8 +29,6 @@ function setup_node {
     printf "Installing $PACKAGE... "
     yarn global add $PACKAGE
   done
-
-  reload_shell
 }
 
 askdo setup_node "Setup node installation?"

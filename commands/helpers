@@ -40,6 +40,28 @@ function sudokeepalive {
 	while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 }
 
+function create_dir_if_not_exists {
+  if [ ! -d "$1" ]; then
+    mkdir -p "$1"
+  fi
+}
+
+function backup_file {
+  if [ -f "$1" ]; then
+    mv "$1" "$1.bak"
+    eif "File $1 backed up to $1.bak"
+  else
+    eerr "File $1 does not exist"
+  fi
+}
+
+function backup_and_link_file {
+  backup_file "$2"
+  if [ $? -eq 0 ]; then
+      link "$1" "$2"
+  fi
+}
+
 function is_m1_mac {
   if [[ "$(arch)" == 'arm64' ]]; then
     return 0

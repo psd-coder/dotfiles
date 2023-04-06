@@ -9,7 +9,7 @@ function setup_os {
   sudokeepalive
   sh $DOTFILES_SHELL/macos
 
-  reload_shell
+  einf "Now you can realod your shell"
 }
 
 askdo setup_os "Setup os?"

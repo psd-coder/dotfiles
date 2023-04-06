@@ -24,20 +24,20 @@ function setup_env {
 
   einf "Linking editor configs"
   # VSCode Configuration Files, attempt to remove existing settings and link ours
-  mv $HOME/Library/Application\ Support/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json.bak
-  link $DOTFILES_CONFIGS/vscode-settings.json $HOME/Library/Application\ Support/Code/User/settings.json
-  mv $HOME/Library/Application\ Support/Code/User/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json.bak
-  mv $HOME/Library/Application\ Support/Code/User/snippets/vscode.code-snippets $HOME/Library/Application\ Support/Code/User/snippets/vscode.code-snippets.bak
-  link $DOTFILES_CONFIGS/vscode.code-snippets $HOME/Library/Application\ Support/Code/User/snippets/vscode.code-snippets
+  backup_and_link_file "$DOTFILES_CONFIGS/vscode-settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+  backup_and_link_file "$DOTFILES_CONFIGS/vscode-keybindings.json" "$HOME/Library/Application\ Support/Code/User/keybindings.json"
+  backup_and_link_file "$DOTFILES_CONFIGS/vscode.code-snippets" "$HOME/Library/Application\ Support/Code/User/snippets/vscode.code-snippets"
+
   # Karabiner config
-  mv $HOME/.config/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json.bak
-  link $DOTFILES_CONFIGS/karabiner $HOME/.config/karabiner/
+  KARABINER_FOLDER="$HOME/.config/karabiner"
+
+  backup_file "$KARABINER_FOLDER/karabiner.json"
+  create_dir_if_not_exists "$HOME/.config/karabiner"
+  link "$DOTFILES_CONFIGS/karabiner" "$KARABINER_FOLDER"
 
   einf "Linking github configs"
   link $DOTFILES_SHELL/gitconfig ~/.gitconfig
   link $DOTFILES_SHELL/gitignore ~/.gitignore
-
-  reload_shell
 }
 
 askdo setup_env "Setup environment?"
