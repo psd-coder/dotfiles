@@ -16,18 +16,18 @@ function setup_node {
   einf "Installing latest LTS node"
   nvm install --lts
 
-  if ! type "yarn" > /dev/null 2>&1; then
-    einf "Installing yarn"
-    npm i yarn -g
+  if ! type "pnpm" > /dev/null 2>&1; then
+    einf "Installing pnpm"
+    curl -fsSL https://get.pnpm.io/install.sh | sh -
   else
-    printf "yarn already installed... skipping\n"
+    printf "pnpm already installed... skipping\n"
   fi
 
   einf "Installing global NPM packages"
   cat $NPM_PACKAGES | \
   while read PACKAGE; do
     printf "Installing $PACKAGE... "
-    yarn global add $PACKAGE
+    pnpm add -g $PACKAGE
   done
 }
 
