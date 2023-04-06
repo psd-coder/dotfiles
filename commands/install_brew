@@ -14,20 +14,20 @@ function install_brew {
 
   if is_m1_mac; then
     echo "export PATH=/opt/homebrew/bin:$PATH" >> ~/.zshrc
-    source ~/.zshrc
+    reload_shell
   fi
 
-  # echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/psdcoder/.zprofile
-  # eval "$(/opt/homebrew/bin/brew shellenv)"
   if ! type "brew" > /dev/null; then
     eerr "Brew failed to install"; exit 1
+  else
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zshrc"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    einf "Brew installed successfully"
   fi
 
-  einf "Brew installed successfully"
-
-  if is_m1_mac; then sudo softwareupdate --install-rosetta; fi
-
-  reload_shell
+  if is_m1_mac;then
+    sudo softwareupdate --install-rosetta
+  fi
 }
 
 askdo install_brew "Install brew?"
