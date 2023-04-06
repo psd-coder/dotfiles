@@ -8,7 +8,6 @@ christian-kohler.path-intellisense
 clinyong.vscode-css-modules
 coderfee.open-html-in-browser
 CoenraadS.disableligatures
-cssho.vscode-svgviewer
 dbaeumer.vscode-eslint
 denoland.vscode-deno
 DotJoshJohnson.xml
@@ -43,6 +42,7 @@ redhat.vscode-yaml
 ricard.postcss
 saionaro.smart-css-autocomplete
 sianglim.slim
+SimonSiefke.svg-preview
 sleistner.vscode-fileutils
 stylelint.vscode-stylelint
 TabNine.tabnine-vscode
