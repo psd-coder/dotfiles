@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 # import helpers
 source `dirname $0`/helpers
@@ -26,6 +26,8 @@ function install_brew {
   einf "Brew installed successfully"
 
   if is_m1_mac; then sudo softwareupdate --install-rosetta; fi
+
+  reload_shell
 }
 
 askdo install_brew "Install brew?"

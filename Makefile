@@ -1,5 +1,6 @@
-.PHONY: install install_brew install_brew_bundle install_managers install_vscode_extensions setup_env setup_node setup_os backup uninstall
+.PHONY: reload_shell install install_brew install_brew_bundle install_managers install_vscode_extensions setup_env setup_node setup_os backup uninstall
 
+.ONESHELL:
 install:
 	@${MAKE} install_xcode_devtools
 	@${MAKE} install_brew
@@ -9,6 +10,7 @@ install:
 	@${MAKE} setup_env
 	@${MAKE} setup_node
 	@${MAKE} setup_os
+
 
 install_xcode_devtools:
 	@sh ./commands/install_xcode_devtools

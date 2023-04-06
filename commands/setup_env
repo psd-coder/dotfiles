@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 # import helpers
 source `dirname $0`/helpers
@@ -36,6 +36,8 @@ function setup_env {
   einf "Linking github configs"
   link $DOTFILES_SHELL/gitconfig ~/.gitconfig
   link $DOTFILES_SHELL/gitignore ~/.gitignore
+
+  reload_shell
 }
 
 askdo setup_env "Setup environment?"

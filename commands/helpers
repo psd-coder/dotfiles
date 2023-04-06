@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 # import helpers
 source `dirname $0`/../shell/functions
@@ -46,4 +46,9 @@ function is_m1_mac {
   else 
     return 1
   fi
+}
+
+function reload_shell {
+  einf "Reloading shell profile... "
+  source "$HOME/.zshrc"
 }
