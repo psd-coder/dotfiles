@@ -19,21 +19,59 @@
     "prefix": "fci",
     "body": ["export { type $1Props, $1 } from \"./$1\";"]
   },
-	"React Functional Component": {
+  "React Functional Component": {
 		"scope": "typescriptreact",
     "prefix": "fc",
     "body": [
-      "import type { FC, HTMLAttributes } from \"react\";",
+      "import type { HTMLAttributes } from \"react\";",
       "import clsx from \"clsx\";",
       "",
       "export type $1Props = HTMLAttributes<HTMLDivElement>;",
       "",
-      "export const $1: FC<$1Props> = ({",
+      "export function $1({",
       "  className,",
       "  ...restProps",
-      "}) => {",
+      "}: $1Props) {",
       "  return <div className={clsx(\"\", className)} {...restProps} />;",
       "};"
     ]
+  },
+  "React Component Stories": {
+    "scope": "typescriptreact",
+    "prefix": "stories",
+    "body": [
+      "import type { Meta, StoryObj } from \"@storybook/react\";",
+      "",
+      "import { $1 as $1Component } from \"./";",
+      "",
+      "type Story = StoryObj<typeof $1Component>;",
+      "",
+      "const meta: Meta<typeof $1Component> = {",
+        "  title: \"Components/$1\",",
+        "  component: $1Component,",
+        "  args: {},",
+      "};",
+      "",
+      "export default meta;",
+      "",
+      "export const $1: Story = { args: {} };"
+    ]
   }
+	// "React Functional Component": {
+	// 	"scope": "typescriptreact",
+  //   "prefix": "fc",
+  //   "body": [
+  //     "import type { FC, HTMLAttributes } from \"react\";",
+  //     "import clsx from \"clsx\";",
+  //     "",
+  //     "export type $1Props = HTMLAttributes<HTMLDivElement>;",
+  //     "",
+  //     "export const $1: FC<$1Props> = ({",
+  //     "  className,",
+  //     "  ...restProps",
+  //     "}) => {",
+  //     "  return <div className={clsx(\"\", className)} {...restProps} />;",
+  //     "};"
+  //   ]
+  // }
 }
