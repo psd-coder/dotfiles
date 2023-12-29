@@ -52,6 +52,7 @@
 	excludesfile = ~/.gitignore
     autocrlf = input
     safecrlf = true
+    ignorecase = false
 
 [filter "lfs"]
     required = true
@@ -63,9 +64,14 @@
     rebase = true
     ff = only
 
+[push]
+    autoSetupRemote = true
+
 [rebase]
     autosquash = true
 	updateRefs = true
 
 [url "ssh://git@github.com/"]
     insteadOf = https://github.com/
+[init]
+	defaultBranch = main
