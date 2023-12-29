@@ -7,9 +7,6 @@ source `dirname $0`/helpers
 function backup {
   einf "Creating brew bundle"
   brew bundle dump --file="$BREW_BUNDLE_FILE" --force
-
-  einf "Collecting vscode extensions list"
-  code --list-extensions > "$CODE_PACKAGES"
 }
 
-askdo backup "Collecte brew bundle and vscode lists?"
+askdo backup "Collecte brew bundle?"
