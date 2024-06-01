@@ -12,9 +12,6 @@ antigen bundles <<EOBUNDLES
   zsh-users/zsh-syntax-highlighting
 EOBUNDLES
 
-# Use theme
-antigen theme romkatv/powerlevel10k
-
 # Apply all
 antigen apply
 

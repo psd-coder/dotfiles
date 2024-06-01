@@ -1,0 +1,45 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """$directory\
+$git_branch\
+$git_status\
+$cmd_duration\
+$direnv\
+$status\
+$character"""
+
+palette = 'plastic'
+
+# Based on VS theme with the same name: https://plastic.wstone.uk/
+[palettes.plastic]
+color_bg0 = '#C6CCD7'
+color_bg1 = '#9199aa'
+color_fg0 = '#21252B'
+color_white = '#FFFFFF'
+color_blue = '#06649f'
+color_green = '#98C379'
+color_purple = '#B57EDC'
+color_red = '#E06C75'
+color_yellow = '#E5C07B'
+
+[character]
+success_symbol = " [󰅂](fg:color_green)"
+error_symbol = " [󰅂](fg:color_red)"
+
+[directory]
+format = "[ $path ](bg:color_bg0 fg:color_fg0)"
+truncation_length = 3
+truncation_symbol = "…/"
+home_symbol = "~"
+
+[git_branch]
+symbol = ""
+format = '[ $symbol $branch ](bg:color_bg1 fg:color_fg0)'
+
+[git_status]
+stashed = ""
+format = '[$all_status$ahead_behind ](bg:color_bg1 fg:color_white bold)'
+
+[cmd_duration]
+format = ' [$duration](fg:color_red)'
