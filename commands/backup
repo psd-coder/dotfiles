@@ -9,4 +9,4 @@ function backup {
   brew bundle dump --file="$BREW_BUNDLE_FILE" --force
 }
 
-askdo backup "Collecte brew bundle?"
+askdo backup "Collect brew bundle?"
