@@ -1,3 +1,5 @@
+
+tap "crowdin/crowdin"
 tap "gromgit/fuse"
 tap "homebrew-ffmpeg/ffmpeg"
 tap "homebrew/bundle"
@@ -43,6 +45,7 @@ brew "vim"
 brew "vips"
 brew "wget"
 brew "wireguard-tools"
+brew "crowdin/crowdin/crowdin@3"
 brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-fdk-aac", "with-rav1e"]
 cask "1password"
 cask "adobe-acrobat-reader"

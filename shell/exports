@@ -33,3 +33,4 @@ path_prepend "$(brew --prefix)/opt/coreutils/libexec/gnubin"
 path_prepend "$(pnpm global bin)"
 path_prepend "./node_modules/.bin"
 path_prepend $PNPM_HOME
+path_prepend "$(brew --prefix)/opt/crowdin@3/bin"
