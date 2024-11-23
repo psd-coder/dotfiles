@@ -1,0 +1,14 @@
+# .zsh_plugins.txt - comments begin with "#"
+# It is used by antidote zsh package manager to install plugins
+
+ohmyzsh/ohmyzsh path:plugins/docker kind:fpath
+ohmyzsh/ohmyzsh path:plugins/docker-compose kind:fpath
+ohmyzsh/ohmyzsh path:plugins/command-not-found kind:fpath
+
+zpm-zsh/colorize
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting
+
+# Add binary utils
+# romkatv/zsh-bench kind:path
