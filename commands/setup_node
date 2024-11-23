@@ -4,21 +4,17 @@
 source `dirname $0`/helpers
 
 function setup_node {
-  if [ ! type "nvm" > /dev/null 2>&1 ]; then
-    err "NVM must be installed first..."; exit 1
+  if [ ! type "fnm" > /dev/null 2>&1 ]; then
+    err "FNM must be installed first..."; exit 1
   fi
 
-  einf "Load nvm"
-  if [ -s "$NVM_DIR/nvm.sh" ]; then
-    \. "$HOME/.nvm/nvm.sh"
-  fi
 
-  einf "Installing latest LTS node"
-  nvm install --lts
+  einf "Installing latest FNM node"
+  fnm install --lts
 
   if ! type "pnpm" > /dev/null 2>&1; then
     einf "Installing pnpm"
-    curl -fsSL https://get.pnpm.io/install.sh | sh -
+    npm install -g pnpm
   else
     printf "pnpm already installed... skipping\n"
   fi

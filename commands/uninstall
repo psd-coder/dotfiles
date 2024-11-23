@@ -11,7 +11,6 @@ function uninstall_env {
   rm -f ~/.aliases.sh
   rm -f ~/.antidote.sh
   rm -f ~/.zsh_plugins.txt
-  rm -f ~/.nvm.sh
   rm -f ~/.profile
   rm -f ~/.zshrc
   rm -f ~/.config/starship.toml

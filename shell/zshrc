@@ -6,7 +6,7 @@ if $ZSH_ENABLE_PROFILING; then
 fi
 
 source $HOME/.functions.sh
-source $HOME/.nvm.sh # should be before exports as we use yarn there
+eval "$(/opt/homebrew/bin/fnm env --use-on-cd --shell zsh)"
 source $HOME/.exports.sh
 source $HOME/.antidote.sh
 source $HOME/.aliases.sh
