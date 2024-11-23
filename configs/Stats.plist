@@ -35,7 +35,7 @@
 	<key>Bluetooth_widget</key>
 	<string>sensors,label</string>
 	<key>CPU_barChart_position</key>
-	<integer>3</integer>
+	<integer>2</integer>
 	<key>CPU_bar_chart_color</key>
 	<string>monochrome</string>
 	<key>CPU_clustersGroup</key>
@@ -43,9 +43,9 @@
 	<key>CPU_hyperhreading</key>
 	<false/>
 	<key>CPU_label_position</key>
-	<integer>2</integer>
-	<key>CPU_lineChart_position</key>
 	<integer>1</integer>
+	<key>CPU_lineChart_position</key>
+	<integer>3</integer>
 	<key>CPU_line_chart_color</key>
 	<string>monochrome</string>
 	<key>CPU_mini_position</key>
@@ -60,27 +60,37 @@
 	<true/>
 	<key>CPU_tachometer_position</key>
 	<integer>5</integer>
+	<key>CPU_updateInterval</key>
+	<integer>2</integer>
 	<key>CPU_usagePerCore</key>
 	<false/>
 	<key>CPU_widget</key>
-	<string>line_chart,mini</string>
+	<string>mini</string>
+	<key>Clock_label_position</key>
+	<integer>1</integer>
 	<key>Clock_list</key>
 	<data>
-	W3sibmFtZSI6IkxvY2FsIHRpbWUiLCJpZCI6Ijc2ODM0MTcxLTQ3RTAtNDkwQS04MkMy
-	LUMyQjY3RTNERTdEMSIsImVuYWJsZWQiOnRydWUsInR6IjoibG9jYWwiLCJmb3JtYXQi
-	OiJFRUUgZGQgTU1NIEhIOm1tOnNzIn0seyJ0eiI6Ii00IiwibmFtZSI6Ik5ldyBZb3Jr
-	IiwiaWQiOiI2ODg5N0M1Mi0yRjBBLTQwRjMtOUNCNy0xOTJFNENGRUU2NUIiLCJlbmFi
-	bGVkIjpmYWxzZSwiZm9ybWF0IjoiRUVFIGRkIE1NTSBISDptbTpzcyJ9LHsibmFtZSI6
-	IlNhbiBGcmFuY2lzY28iLCJ0eiI6Ii03IiwiZW5hYmxlZCI6ZmFsc2UsImlkIjoiMDYx
-	RDQ0QzgtQTgwNS00RjQ4LTk1MzAtMDc0RUY3OUY4QzdBIiwiZm9ybWF0IjoiRUVFIGRk
-	IE1NTSBISDptbTpzcyJ9XQ==
+	W3sibmFtZSI6IkxvY2FsIHRpbWUiLCJmb3JtYXQiOiJFRUUgZGQgTU1NIEhIOm1tOnNz
+	IiwidHoiOiJsb2NhbCIsImlkIjoiNzY4MzQxNzEtNDdFMC00OTBBLTgyQzItQzJCNjdF
+	M0RFN0QxIiwiZW5hYmxlZCI6dHJ1ZX0seyJpZCI6IjY4ODk3QzUyLTJGMEEtNDBGMy05
+	Q0I3LTE5MkU0Q0ZFRTY1QiIsIm5hbWUiOiJOZXcgWW9yayIsInR6IjoiLTQiLCJmb3Jt
+	YXQiOiJFRUUgZGQgTU1NIEhIOm1tOnNzIiwiZW5hYmxlZCI6ZmFsc2V9LHsiaWQiOiIw
+	NjFENDRDOC1BODA1LTRGNDgtOTUzMC0wNzRFRjc5RjhDN0EiLCJuYW1lIjoiU2FuIEZy
+	YW5jaXNjbyIsImZvcm1hdCI6IkVFRSBkZCBNTU0gSEg6bW06c3MiLCJlbmFibGVkIjpm
+	YWxzZSwidHoiOiItNyJ9LHsiaWQiOiI2QTNEM0FDMC02NEFGLTQ0QkQtQTY5Ny05OTc0
+	NURCNkQyREYiLCJmb3JtYXQiOiJ5eXl5LU1NLWRkIEhIOm1tOnNzIiwibmFtZSI6Ik1v
+	c2NvdyIsImVuYWJsZWQiOmZhbHNlLCJ0eiI6IjMifV0=
 	</data>
 	<key>Clock_sensors_mode</key>
 	<string>oneRow</string>
 	<key>Clock_sensors_monospacedFont</key>
 	<true/>
+	<key>Clock_stack_position</key>
+	<integer>0</integer>
 	<key>Clock_state</key>
 	<true/>
+	<key>Clock_widget</key>
+	<string>sensors</string>
 	<key>CombinedModules</key>
 	<false/>
 	<key>Disk_barChart_position</key>
@@ -106,41 +116,47 @@
 	<key>Disk_widget</key>
 	<string>speed</string>
 	<key>GPU_barChart_position</key>
-	<integer>3</integer>
+	<integer>2</integer>
 	<key>GPU_gpu</key>
 	<string>automatic</string>
 	<key>GPU_label_position</key>
-	<integer>2</integer>
-	<key>GPU_lineChart_position</key>
-	<integer>0</integer>
-	<key>GPU_mini_position</key>
 	<integer>1</integer>
+	<key>GPU_lineChart_position</key>
+	<integer>4</integer>
+	<key>GPU_mini_position</key>
+	<integer>0</integer>
 	<key>GPU_state</key>
 	<true/>
 	<key>GPU_tachometer_position</key>
-	<integer>4</integer>
+	<integer>3</integer>
+	<key>GPU_updateInterval</key>
+	<integer>2</integer>
 	<key>GPU_widget</key>
-	<string>mini,line_chart</string>
+	<string>mini</string>
 	<key>LaunchAtLoginNext</key>
 	<true/>
+	<key>NSNavLastRootDirectory</key>
+	<string>~</string>
+	<key>NSNavPanelExpandedStateForSaveMode</key>
+	<true/>
 	<key>NSStatusItem Preferred Position Battery</key>
-	<real>338</real>
+	<real>160</real>
 	<key>NSStatusItem Preferred Position CPU</key>
-	<real>649</real>
+	<real>803</real>
 	<key>NSStatusItem Preferred Position Clock</key>
 	<real>60</real>
 	<key>NSStatusItem Preferred Position Clock_sensors</key>
-	<real>78</real>
-	<key>NSStatusItem Preferred Position GPU_line_chart</key>
-	<real>1149</real>
+	<integer>244</integer>
 	<key>NSStatusItem Preferred Position GPU_mini</key>
-	<real>602</real>
+	<real>756</real>
 	<key>NSStatusItem Preferred Position Network</key>
 	<real>374</real>
 	<key>NSStatusItem Preferred Position Network_speed</key>
-	<real>486</real>
+	<real>685</real>
 	<key>NSStatusItem Preferred Position RAM</key>
-	<real>422</real>
+	<real>621</real>
+	<key>NSStatusItem Preferred Position Sensors_sensors</key>
+	<real>854</real>
 	<key>NSStatusItem Restore Position Battery_battery</key>
 	<integer>481</integer>
 	<key>NSStatusItem Restore Position Battery_battery_details</key>
@@ -157,8 +173,12 @@
 	<integer>548</integer>
 	<key>NSStatusItem Restore Position Disk_speed</key>
 	<integer>677</integer>
+	<key>NSStatusItem Restore Position GPU_line_chart</key>
+	<integer>6279</integer>
 	<key>NSStatusItem Restore Position RAM_mini</key>
 	<integer>585</integer>
+	<key>NSStatusItem Restore Position Sensors_label</key>
+	<integer>692</integer>
 	<key>NSToolbar Configuration eu.exelban.Stats.Settings.Toolbar</key>
 	<dict>
 		<key>TB Display Mode</key>
@@ -170,8 +190,10 @@
 		<key>TB Size Mode</key>
 		<integer>1</integer>
 	</dict>
+	<key>NSWindow Frame GoToSheet</key>
+	<string>1050 788 460 208 0 0 2560 1415 </string>
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
-	<string>1065 939 430 163 0 0 2560 1415 </string>
+	<string>880 654 800 448 0 0 2560 1415 </string>
 	<key>Network_label_position</key>
 	<integer>2</integer>
 	<key>Network_networkChart_position</key>
@@ -224,18 +246,74 @@
 	<true/>
 	<key>RAM_tachometer_position</key>
 	<integer>6</integer>
+	<key>RAM_updateInterval</key>
+	<integer>2</integer>
 	<key>RAM_widget</key>
 	<string>mini,bar_chart</string>
+	<key>Sensors_barChart_position</key>
+	<integer>2</integer>
+	<key>Sensors_fanControl</key>
+	<false/>
+	<key>Sensors_fanValue</key>
+	<string>percentage</string>
+	<key>Sensors_hid</key>
+	<false/>
+	<key>Sensors_label_position</key>
+	<integer>1</integer>
+	<key>Sensors_sensors_mode</key>
+	<string>automatic</string>
+	<key>Sensors_sensors_monospacedFont</key>
+	<true/>
+	<key>Sensors_sensors_size</key>
+	<false/>
+	<key>Sensors_stack_position</key>
+	<integer>0</integer>
+	<key>Sensors_state</key>
+	<true/>
+	<key>Sensors_widget</key>
+	<string>sensors</string>
 	<key>ble_c1-f2-53-e2-0a-a2</key>
 	<true/>
 	<key>dockIcon</key>
 	<false/>
+	<key>fan_0_mode</key>
+	<integer>0</integer>
+	<key>fan_0_speed</key>
+	<integer>5779</integer>
+	<key>fan_1_mode</key>
+	<integer>0</integer>
+	<key>fan_1_speed</key>
+	<integer>6241</integer>
 	<key>pause</key>
 	<false/>
 	<key>runAtLoginInitialized</key>
 	<true/>
+	<key>sensor_Average CPU</key>
+	<false/>
+	<key>sensor_Average System Total</key>
+	<false/>
+	<key>sensor_Hottest CPU</key>
+	<true/>
+	<key>sensor_Hottest GPU</key>
+	<true/>
+	<key>sensor_Hottest GPU_notification</key>
+	<string></string>
+	<key>sensor_ID0R</key>
+	<false/>
+	<key>sensor_PPBR</key>
+	<false/>
+	<key>sensor_TaLP</key>
+	<false/>
+	<key>sensor_Tm06</key>
+	<false/>
+	<key>sensor_Total System Consumption</key>
+	<false/>
 	<key>setupProcess</key>
 	<true/>
+	<key>stack_Hottest CPU_index</key>
+	<integer>0</integer>
+	<key>stack_Hottest GPU_index</key>
+	<integer>1</integer>
 	<key>telemetry</key>
 	<false/>
 	<key>telemetry_id</key>
@@ -243,8 +321,8 @@
 	<key>update-interval</key>
 	<string>Once per week</string>
 	<key>updater_check_ts</key>
-	<integer>1716674808</integer>
+	<integer>1731928105</integer>
 	<key>version</key>
-	<string>2.10.14</string>
+	<string>2.11.18</string>
 </dict>
 </plist>
