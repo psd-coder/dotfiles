@@ -1,3 +1,9 @@
+ZSH_ENABLE_PROFILING=false
+
+# Enable profiling if ZSH_PROFILE is set
+if $ZSH_ENABLE_PROFILING; then
+  zmodload zsh/zprof
+fi
 
 source $HOME/.functions.sh
 source $HOME/.nvm.sh # should be before exports as we use yarn there
@@ -17,3 +23,7 @@ unsetopt share_history
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+
+if $ZSH_ENABLE_PROFILING; then
+  zprof
+fi
