@@ -33,8 +33,6 @@ alias dclean='dstop-all && drm-all && drmi-all'
 # Run interactive container, e.g., $dki base /bin/bash
 alias dki="docker run -i -t -P"
 
-alias delete-node-modules="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
-
 # Bash into running container
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 

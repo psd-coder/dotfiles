@@ -28,9 +28,34 @@ grep_projects() {
   grep -i -R --exclude-dir={node_modules,build,public,static,webpack,tmp,.cache,dist,dql,.local_data,jspm_packages,.yarn,vendor,.next,storybook-static} --include={\*.js,\*.jsx,\*.ts,\*.tsx} $1 ~/projects
 }
 
-# Removes  Git branches that have been merged into master.
+# Removes Git branches that have been merged into master.
 git_sweep() {
   git fetch --prune && for branch in $(git for-each-ref --format='%(if:equals=[gone])%(upstream:track)%(then)%(refname:short)%(end)' refs/heads); do git branch -D $branch; done
 }
 
+# Removes all nested `node_modules` directories from the target directory.
+cleanup_projects() {
+  local target_dir="$1"
 
+  # Predefined list of directories to remove
+  local dir_names=("node_modules" ".cache" ".tmp" ".temp" ".next" ".nuxt" ".svelte-kit" ".expo" ".turbo" ".webpack" ".parcel-cache" "dist" "build" "storybook-static" "tmp")
+
+  if [[ -z "$target_dir" ]]; then
+    echo "Usage: cleanup_predefined_directories <target_directory>"
+    return 1
+  fi
+
+  if [[ ! -d "$target_dir" ]]; then
+    echo "Error: Directory '$target_dir' does not exist."
+    return 1
+  fi
+
+  echo "Scanning for predefined directories to remove in $target_dir..."
+
+  for dir_name in "${dir_names[@]}"; do
+    echo "Removing all '$dir_name' directories..."
+    find "$target_dir" -type d -name "$dir_name" -prune -exec rm -rf '{}' +
+  done
+
+  echo "Predefined directories removed from $target_dir."
+}
