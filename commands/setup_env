@@ -15,8 +15,9 @@ function setup_env {
   setup_item2_integration
   link $DOTFILES_SHELL/functions ~/.functions.sh
   link $DOTFILES_SHELL/exports ~/.exports.sh
-  link $DOTFILES_SHELL/aliases ~/.aliases.sh
   link $DOTFILES_SHELL/antidote_zsh_plugins ~/.zsh_plugins.txt
+  link $DOTFILES_SHELL/node ~/.node.sh
+  link $DOTFILES_SHELL/aliases ~/.aliases.sh
   link $DOTFILES_SHELL/antidote ~/.antidote.sh
   link $DOTFILES_SHELL/profile ~/.profile
   link $DOTFILES_SHELL/zshrc ~/.zshrc

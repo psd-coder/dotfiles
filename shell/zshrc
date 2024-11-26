@@ -6,9 +6,9 @@ if $ZSH_ENABLE_PROFILING; then
 fi
 
 source $HOME/.functions.sh
-eval "$(/opt/homebrew/bin/fnm env --use-on-cd --shell zsh)"
 source $HOME/.exports.sh
 source $HOME/.antidote.sh
+source $HOME/.node.sh
 source $HOME/.aliases.sh
 source ~/.iterm2_shell_integration.zsh
 eval "$(direnv hook zsh)" # Direnv hook
