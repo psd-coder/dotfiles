@@ -23,6 +23,10 @@ function setup_env {
   link $DOTFILES_SHELL/zshrc ~/.zshrc
   link $DOTFILES_SHELL/starship.toml ~/.config/starship.toml
 
+  einf "Linking ssh"
+  backup_and_link_file "$DOTFILES_CONFIGS/ssh/config" "$HOME/.ssh/config" && chmod 0700 ~/.ssh/config
+  backup_and_link_file "$DOTFILES_CONFIGS/ssh/allowed_signers" "$HOME/.ssh/allowed_signers" && chmod 0700 ~/.ssh/config
+
   einf "Linking editor configs"
   # VSCode Configuration Files, attempt to remove existing settings and link ours
   backup_and_link_file "$DOTFILES_CONFIGS/vscode-settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
