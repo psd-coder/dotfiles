@@ -14,7 +14,7 @@ function setup_node {
 
   if ! type "pnpm" > /dev/null 2>&1; then
     einf "Installing pnpm"
-    npm install -g pnpm
+    corepack install -g pnpm
   else
     printf "pnpm already installed... skipping\n"
   fi
