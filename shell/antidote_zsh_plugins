@@ -5,10 +5,10 @@ ohmyzsh/ohmyzsh path:plugins/docker kind:fpath
 ohmyzsh/ohmyzsh path:plugins/docker-compose kind:fpath
 ohmyzsh/ohmyzsh path:plugins/command-not-found kind:fpath
 
-zpm-zsh/colorize
-zsh-users/zsh-autosuggestions
-zsh-users/zsh-completions
-zsh-users/zsh-syntax-highlighting
+zdharma-continuum/fast-syntax-highlighting kind:defer
+zsh-users/zsh-autosuggestions kind:defer
+zsh-users/zsh-completions kind:defer
+zpm-zsh/colorize kind:defer
 
 # Add binary utils
 # romkatv/zsh-bench kind:path
