@@ -8,6 +8,10 @@
 	<string>gpt-4o</string>
 	<key>AlwaysOpenWindowAtStartup</key>
 	<true/>
+	<key>BracketedPasteMode</key>
+	<true/>
+	<key>ConvertDosNewlines</key>
+	<true/>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>plastic</key>
@@ -372,6 +376,8 @@
 	<key>EnableDivisionView</key>
 	<true/>
 	<key>EnableProxyIcon</key>
+	<false/>
+	<key>EscapeShellCharsWithBackslash</key>
 	<false/>
 	<key>FocusFollowsMouse</key>
 	<false/>
@@ -3603,6 +3609,12 @@
 	<key>OpenTmuxWindowsIn</key>
 	<integer>0</integer>
 	<key>PMPrintingExpandedStateForPrint2</key>
+	<false/>
+	<key>PasteSpecialRegex</key>
+	<string></string>
+	<key>PasteSpecialSubstitution</key>
+	<string></string>
+	<key>PasteSpecialUseRegexSubstitution</key>
 	<false/>
 	<key>PointerActions</key>
 	<dict>
