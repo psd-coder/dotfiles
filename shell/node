@@ -4,7 +4,9 @@ export NODE_REPL_HISTORY_SIZE='32768'; # Allow 32^3 entries; default is 1000
 
 # PNPM
 eval "$(fnm env --use-on-cd --shell zsh)"
-export COREPACK_ENABLE_AUTO_PIN=0
 alias pnpm="corepack pnpm"
+export COREPACK_ENABLE_AUTO_PIN=0
+export PNPM_HOME="/Users/psdcoder/Library/pnpm"
+path_prepend $PNPM_HOME
 path_prepend "$(pnpm global bin)"
 path_prepend "./node_modules/.bin"
