@@ -13,6 +13,7 @@ function uninstall_env {
   rm -f ~/.aliases.sh
   rm -f ~/.zsh_plugins.txt
   rm -f ~/.profile
+  rm -f ~/.bash_profile
   rm -f ~/.zshrc
   rm -f ~/.config/starship.toml
 

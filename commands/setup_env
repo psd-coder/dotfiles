@@ -20,6 +20,7 @@ function setup_env {
   link $DOTFILES_SHELL/aliases ~/.aliases.sh
   link $DOTFILES_SHELL/antidote ~/.antidote.sh
   link $DOTFILES_SHELL/profile ~/.profile
+  link $DOTFILES_SHELL/bash_profile ~/.bash_profile
   link $DOTFILES_SHELL/zshrc ~/.zshrc
   link $DOTFILES_SHELL/starship.toml ~/.config/starship.toml
 
