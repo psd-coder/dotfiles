@@ -424,6 +424,8 @@
 			<string>Yes</string>
 			<key>Ambiguous Double Width</key>
 			<false/>
+			<key>Animate Movement</key>
+			<false/>
 			<key>Ansi 0 Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -1069,7 +1071,7 @@
 			<key>Blend</key>
 			<real>0.49861299818840582</real>
 			<key>Blinking Cursor</key>
-			<false/>
+			<true/>
 			<key>Blur</key>
 			<false/>
 			<key>Bold Color</key>
@@ -1165,15 +1167,15 @@
 			<key>Cursor Guide Color</key>
 			<dict>
 				<key>Alpha Component</key>
-				<real>0.25</real>
+				<real>0.126739501953125</real>
 				<key>Blue Component</key>
-				<real>0.99078255891799927</real>
+				<real>0.98239976167678833</real>
 				<key>Color Space</key>
 				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.92049425840377808</real>
+				<real>0.91545236110687256</real>
 				<key>Red Component</key>
-				<real>0.7486235499382019</real>
+				<real>0.78281623125076294</real>
 			</dict>
 			<key>Cursor Guide Color (Dark)</key>
 			<dict>
@@ -3654,7 +3656,7 @@
 	<key>SeparateStatusBarsPerPane</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>ShowNewOutputIndicator</key>
 	<true/>
 	<key>SoundForEsc</key>
