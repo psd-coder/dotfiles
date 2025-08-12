@@ -59,3 +59,26 @@ cleanup_projects() {
 
   echo "Predefined directories removed from $target_dir."
 }
+
+serve() {
+    if [ $# -eq 0 ]; then
+        echo "Usage: serve <directory> [port]"
+        echo "Example: serve . 8000"
+        return 1
+    fi
+    
+    local directory="$1"
+    local port="${2:-8000}"
+    
+    if [ ! -d "$directory" ]; then
+        echo "Error: Directory '$directory' does not exist"
+        return 1
+    fi
+    
+    echo "Starting Caddy static server..."
+    echo "Directory: $directory"
+    echo "Port: $port"
+    echo "URL: http://localhost:$port"
+    
+    caddy file-server --root "$directory" --listen ":$port"
+}
