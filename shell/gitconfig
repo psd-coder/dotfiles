@@ -19,6 +19,7 @@
     autocrlf            = input
     safecrlf            = true
     ignorecase          = false
+    pager               = less -r
 
 [init]
     defaultBranch       = main
