@@ -24,6 +24,14 @@ alias drm-all='docker rm $(dpaq)'
 alias drmv-all='docker rm -v $(dpaq)'
 alias drmi-all='docker rmi $(diaq)'
 
+# Alias all Node package managers to use corepack
+alias yarn="corepack yarn"
+alias yarnpkg="corepack yarnpkg"
+alias pnpm="corepack pnpm"
+alias pnpx="corepack pnpx"
+alias npm="corepack npm"
+alias npx="corepack npx"
+
 # Stop all images
 alias ddown='dstop-all && drm-all'
 
