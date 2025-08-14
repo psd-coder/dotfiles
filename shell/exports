@@ -19,7 +19,7 @@ export LESS_TERMCAP_md="${yellow}"; # Highlight section titles in man pages
 export EDITOR='vim';
 
 # Path Sources
-if is_m1_mac; then path_prepend /opt/homebrew/bin; fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
 path_prepend /usr/local/bin/
 path_prepend "$(brew --prefix)/opt/findutils/libexec/gnubin"
 path_prepend "$(brew --prefix)/opt/coreutils/libexec/gnubin"

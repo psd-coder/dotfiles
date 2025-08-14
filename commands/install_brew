@@ -11,19 +11,6 @@ function install_brew {
   fi
 
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-  if is_m1_mac; then
-    echo "export PATH=/opt/homebrew/bin:$PATH" >> ~/.zshrc
-    reload_shell
-  fi
-
-  if ! type "brew" > /dev/null; then
-    eerr "Brew failed to install"; exit 1
-  else
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zshrc"
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-    einf "Brew installed successfully"
-  fi
 }
 
 askdo install_brew "Install brew?"
