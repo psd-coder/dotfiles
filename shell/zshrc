@@ -13,17 +13,19 @@ source $HOME/.aliases.sh
 source ~/.iterm2_shell_integration.zsh
 eval "$(direnv hook zsh)" # Direnv hook
 eval "$(navi widget zsh)" # Navi shell widget, it is assigned to Ctrl+G
-
 eval "$(starship init zsh)" 
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+
+# Enable completions
+autoload -Uz compinit
+compinit -d ~/.zcompdump
 
 # ZSH options
 unsetopt inc_append_history # Do not share shell history between sessions
 unsetopt share_history
-
-autoload -Uz compinit && compinit
-# tabtab source for packages
-# uninstall by removing these lines
-[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
 if $ZSH_ENABLE_PROFILING; then
   zprof
