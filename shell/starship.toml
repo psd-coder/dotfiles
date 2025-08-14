@@ -33,6 +33,13 @@ truncation_length = 3
 truncation_symbol = "…/"
 home_symbol = "~"
 
+[status]
+format = "[ $symbol$status]($style)"	
+symbol = "✗"
+style = "color_red"
+map_symbol = true
+disabled = false
+
 [git_branch]
 symbol = ""
 format = '[ $symbol $branch ](bg:color_bg1 fg:color_fg0)'
