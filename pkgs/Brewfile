@@ -42,6 +42,7 @@ brew "tlrc"
 brew "vim"
 brew "wget"
 brew "wireguard-tools"
+brew "zoxide"
 brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-fdk-aac", "with-rav1e"]
 brew "oven-sh/bun/bun"
 cask "1password"

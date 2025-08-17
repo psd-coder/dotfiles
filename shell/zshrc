@@ -13,7 +13,8 @@ source $HOME/.aliases.sh
 source ~/.iterm2_shell_integration.zsh
 eval "$(direnv hook zsh)" # Direnv hook
 eval "$(navi widget zsh)" # Navi shell widget, it is assigned to Ctrl+G
-eval "$(starship init zsh)" 
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 
 # tabtab source for packages
 # uninstall by removing these lines
