@@ -2,11 +2,17 @@
 export NODE_REPL_HISTORY=~/.node_history; # Persistent REPL history for node
 export NODE_REPL_HISTORY_SIZE='32768'; # Allow 32^3 entries; default is 1000
 
-# PNPM
-eval "$(fnm env --use-on-cd --shell zsh)"
+# fnm (Fast Node Manager)
+if command -v fnm &> /dev/null; then
+  eval "$(fnm env --use-on-cd --shell zsh)"
+fi
+
+# pnpm
 alias pnpm="corepack pnpm"
 export COREPACK_ENABLE_AUTO_PIN=0
 export PNPM_HOME="$HOME/Library/pnpm"
-path_prepend $PNPM_HOME
-path_prepend "$(pnpm global bin)"
+path_prepend "$PNPM_HOME"
+if command -v pnpm &> /dev/null; then
+  path_prepend "$(pnpm global bin)"
+fi
 path_prepend "./node_modules/.bin"
