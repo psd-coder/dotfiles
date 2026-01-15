@@ -1,0 +1,12 @@
+git
+curl
+wget
+vim
+zsh
+direnv
+fzf
+ripgrep
+fd-find
+jq
+build-essential
+unzip
