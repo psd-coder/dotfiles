@@ -1,13 +1,47 @@
 # Dotfiles
 
-This repo based on https://github.com/nijikokun/dotfiles
+Personal dotfiles with cross-platform support (macOS, Linux, dev containers).
 
 ## Installation
+
+### macOS
 
 ```bash
 git clone https://github.com/psd-coder/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 make install
+```
+
+Installs: Xcode CLI tools, Homebrew, packages from Brewfile, shell configs, macOS preferences.
+
+### Linux
+
+```bash
+git clone https://github.com/psd-coder/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+make install
+```
+
+Installs: apt packages, fnm, Node.js, shell configs.
+
+### Dev Container (minimal)
+
+```bash
+git clone https://github.com/psd-coder/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+DOTFILES_MINIMAL=true make install
+```
+
+Installs only essential packages (git, zsh, fzf, ripgrep, jq).
+
+### Individual Targets
+
+```bash
+make install_apt          # Linux: install apt packages
+make install_brew_bundle  # macOS: install Homebrew packages
+make setup_env            # Link shell/editor configs
+make setup_node           # Install fnm + Node.js + pnpm
+make setup_os             # macOS: apply system preferences
 ```
 
 ## Manual settings:
