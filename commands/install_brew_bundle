@@ -5,9 +5,7 @@ source `dirname $0`/helpers
 
 # Install brew bundle
 function install_brew_bundle {
-  if ! type "brew" > /dev/null; then
-    eerr "Brew must be installed first..."; exit 1
-  fi
+  ensure_brew
 
   einf "Updating brew"
   brew update
