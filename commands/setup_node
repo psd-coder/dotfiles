@@ -24,19 +24,22 @@ function setup_node {
   einf "Installing latest LTS node via mise"
   mise use -g node@lts
 
-  if ! type "pnpm" > /dev/null 2>&1; then
+  if ! command -v pnpm &> /dev/null; then
     einf "Installing pnpm"
+    corepack enable
     corepack install -g pnpm
   else
-    printf "pnpm already installed... skipping\n"
+    einf "pnpm already installed... skipping"
   fi
 
-  einf "Installing global NPM packages"
-  cat $NPM_PACKAGES | \
-  while read PACKAGE; do
-    printf "Installing $PACKAGE... "
-    pnpm add -g $PACKAGE
-  done
+  if [[ -f "$NPM_PACKAGES" ]]; then
+    einf "Installing global NPM packages"
+    while read -r PACKAGE; do
+      [[ -z "$PACKAGE" ]] && continue
+      einf "Installing $PACKAGE..."
+      pnpm add -g "$PACKAGE"
+    done < "$NPM_PACKAGES"
+  fi
 }
 
 askdo setup_node "Setup node installation?"
