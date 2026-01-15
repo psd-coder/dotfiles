@@ -48,7 +48,7 @@ function create_dir_if_not_exists {
 function backup_file {
   if [ -f "$1" ]; then
     mv "$1" "$1.bak"
-    eif "File $1 backed up to $1.bak"
+    einf "File $1 backed up to $1.bak"
   else
     eerr "File $1 does not exist"
   fi
