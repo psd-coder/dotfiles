@@ -35,7 +35,7 @@ if [[ -d "$DOTFILES_DIR" ]]; then
   git -C "$DOTFILES_DIR" pull
 else
   echo "[i] Cloning dotfiles..."
-  git clone "$DOTFILES_REPO" "$DOTFILES_DIR"
+  git clone --branch devcontainer --single-branch --depth 1 "$DOTFILES_REPO" "$DOTFILES_DIR"
 fi
 
 echo "[i] Running install..."
