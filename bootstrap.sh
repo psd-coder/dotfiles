@@ -15,8 +15,11 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   if ! xcode-select -p &> /dev/null; then
     echo "[i] Installing Xcode CLI tools..."
     xcode-select --install
-    echo "[!] Press any key after Xcode CLI tools installation completes..."
-    read -n 1
+    echo "[i] Waiting for Xcode CLI tools installation (click Install in the dialog)..."
+    until xcode-select -p &> /dev/null; do
+      sleep 5
+    done
+    echo "[i] Xcode CLI tools installed"
   fi
 
 else
