@@ -1,13 +1,6 @@
-# Homebrew
-if [[ -x /opt/homebrew/bin/brew ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
+# Common exports (platform-specific in shell/platform/)
 
-# oh-my-zsh
 export DEFAULT_USER=`whoami`
-
-# SSH
-export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 # Languages
 export LANG='en_US.UTF-8';
@@ -17,31 +10,14 @@ export LESSCHARSET=utf-8; # Fix russian text in less, git diff, etc.
 # Setup colors
 export TERM=xterm-256color
 export CLICOLOR=1
-export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
 
 # Setup editor
 export EDITOR='vim';
 
-# Homebrew-dependent paths and configs
-if command -v brew &> /dev/null; then
-  BREW_PREFIX="$(brew --prefix)"
-
-  # LLVM
-  if [[ -d "$BREW_PREFIX/opt/llvm@20" ]]; then
-    export LLVM_CONFIG="$BREW_PREFIX/opt/llvm@20/bin/llvm-config"
-    export LDFLAGS="-L/$BREW_PREFIX/opt/llvm@20/lib"
-    export CPPFLAGS="-I/$BREW_PREFIX/opt/llvm@20/include"
-    export CMAKE_PREFIX_PATH="$BREW_PREFIX/opt/llvm@20"
-    path_prepend "$BREW_PREFIX/opt/llvm@20/bin"
-  fi
-
-  # GNU tools and other brew packages
-  path_prepend "$BREW_PREFIX/opt/findutils/libexec/gnubin"
-  path_prepend "$BREW_PREFIX/opt/coreutils/libexec/gnubin"
-  path_prepend "$BREW_PREFIX/opt/ruby/bin"
-  path_prepend "$BREW_PREFIX/opt/crowdin@3/bin"
-fi
-
-path_append "$HOME/.antigravity/antigravity/bin"
+# Common paths
 path_append "$HOME/.local/bin"
 path_append /usr/local/bin/
+
+# Source platform-specific exports
+PLATFORM_FILE="$HOME/.dotfiles/shell/platform/$(uname -s | tr '[:upper:]' '[:lower:]').sh"
+[[ -f "$PLATFORM_FILE" ]] && source "$PLATFORM_FILE"
