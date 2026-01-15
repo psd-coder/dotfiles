@@ -19,7 +19,7 @@
     autocrlf            = input
     safecrlf            = true
     ignorecase          = false
-    pager               = less -r
+	pager               =  less -R -F
 
 [init]
     defaultBranch       = main
@@ -86,6 +86,7 @@
     autosquash          = true
     updateRefs          = true
     autostash           = true
+	missingCommitsCheck = error
 
 [rerere]
     enabled             = true
