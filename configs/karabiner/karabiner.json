@@ -117,6 +117,7 @@
                                     "key_code": "period",
                                     "modifiers": { "mandatory": ["command", "control", "option", "shift"] }
                                 },
+                                "to": [{ "key_code": "vk_none" }],
                                 "type": "basic"
                             }
                         ]
