@@ -73,3 +73,24 @@ function reload_shell {
   einf "Reloading shell profile... "
   source "$HOME/.zshrc"
 }
+
+function ensure_brew {
+  if type "brew" > /dev/null 2>&1; then
+    return 0
+  fi
+
+  einf "Homebrew not found, installing..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+}
+
+function ensure_brew_package {
+  ensure_brew
+
+  if brew list "$1" &> /dev/null; then
+    return 0
+  fi
+
+  einf "Installing $1 via Homebrew..."
+  brew install "$1"
+}
