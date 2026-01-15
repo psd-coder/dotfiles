@@ -5,12 +5,12 @@ Personal dotfiles with cross-platform support (macOS, Linux, dev containers).
 ## Quick Start (fresh system)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/psd-coder/dotfiles/master/bootstrap.sh | bash
+bash <(curl -fsSL https://raw.githubusercontent.com/psd-coder/dotfiles/master/bootstrap.sh)
 ```
 
 Minimal install (dev containers):
 ```bash
-curl -fsSL https://raw.githubusercontent.com/psd-coder/dotfiles/master/bootstrap.sh | DOTFILES_MINIMAL=true bash
+DOTFILES_MINIMAL=true bash <(curl -fsSL https://raw.githubusercontent.com/psd-coder/dotfiles/master/bootstrap.sh)
 ```
 
 ## Manual Installation

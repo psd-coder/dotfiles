@@ -2,7 +2,7 @@
 set -e
 
 # Bootstrap script for fresh systems
-# Usage: curl -fsSL https://raw.githubusercontent.com/psd-coder/dotfiles/master/bootstrap.sh | bash
+# Usage: bash <(curl -fsSL https://raw.githubusercontent.com/psd-coder/dotfiles/master/bootstrap.sh)
 
 DOTFILES_DIR="$HOME/.dotfiles"
 DOTFILES_REPO="https://github.com/psd-coder/dotfiles.git"
