@@ -3,16 +3,19 @@
 # import helpers
 source `dirname $0`/helpers
 
-function setup_item2_integration {
+function setup_iterm2_integration {
+  if ! $IS_MACOS; then
+    return
+  fi
+
   einf "Setting up iterm2 shell integration"
   curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
 }
 
-# Install brew
 function setup_env {
   einf "Linking shell configs"
-  
-  setup_item2_integration
+
+  setup_iterm2_integration
   link $DOTFILES_SHELL/functions ~/.functions.sh
   link $DOTFILES_SHELL/exports ~/.exports.sh
   link $DOTFILES_SHELL/antidote_zsh_plugins ~/.zsh_plugins.txt
@@ -22,30 +25,43 @@ function setup_env {
   link $DOTFILES_SHELL/profile ~/.profile
   link $DOTFILES_SHELL/bash_profile ~/.bash_profile
   link $DOTFILES_SHELL/zshrc ~/.zshrc
+  create_dir_if_not_exists "$HOME/.config"
   link $DOTFILES_SHELL/starship.toml ~/.config/starship.toml
 
   einf "Linking ssh"
-  backup_and_link_file "$DOTFILES_CONFIGS/ssh/config" "$HOME/.ssh/config" && chmod 0700 ~/.ssh/config
+  create_dir_if_not_exists "$HOME/.ssh"
+  if $IS_MACOS; then
+    SSH_CONFIG="$DOTFILES_CONFIGS/ssh/config.darwin"
+  else
+    SSH_CONFIG="$DOTFILES_CONFIGS/ssh/config.linux"
+  fi
+  backup_and_link_file "$SSH_CONFIG" "$HOME/.ssh/config" && chmod 0700 ~/.ssh/config
   backup_and_link_file "$DOTFILES_CONFIGS/ssh/allowed_signers" "$HOME/.ssh/allowed_signers" && chmod 0600 ~/.ssh/allowed_signers
 
   einf "Linking editor configs"
-  # VSCode Configuration Files, attempt to remove existing settings and link ours
-  backup_and_link_file "$DOTFILES_CONFIGS/vscode-settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
-  backup_and_link_file "$DOTFILES_CONFIGS/vscode-keybindings.json" "$HOME/Library/Application\ Support/Code/User/keybindings.json"
-  backup_and_link_file "$DOTFILES_CONFIGS/vscode.code-snippets" "$HOME/Library/Application\ Support/Code/User/snippets/vscode.code-snippets"
+  VSCODE_CONFIG_DIR="$(get_vscode_config_dir)"
+  create_dir_if_not_exists "$VSCODE_CONFIG_DIR"
+  create_dir_if_not_exists "$VSCODE_CONFIG_DIR/snippets"
+  backup_and_link_file "$DOTFILES_CONFIGS/vscode-settings.json" "$VSCODE_CONFIG_DIR/settings.json"
+  backup_and_link_file "$DOTFILES_CONFIGS/vscode-keybindings.json" "$VSCODE_CONFIG_DIR/keybindings.json"
+  backup_and_link_file "$DOTFILES_CONFIGS/vscode.code-snippets" "$VSCODE_CONFIG_DIR/snippets/vscode.code-snippets"
 
-  # Karabiner config
-  KARABINER_FOLDER="$HOME/.config/karabiner"
-  backup_file "$KARABINER_FOLDER/karabiner.json"
-  create_dir_if_not_exists "$HOME/.config/karabiner"
-  link "$DOTFILES_CONFIGS/karabiner" "$KARABINER_FOLDER"
+  # Karabiner config (macOS only)
+  if $IS_MACOS; then
+    KARABINER_FOLDER="$HOME/.config/karabiner"
+    backup_file "$KARABINER_FOLDER/karabiner.json"
+    create_dir_if_not_exists "$HOME/.config/karabiner"
+    link "$DOTFILES_CONFIGS/karabiner" "$KARABINER_FOLDER"
+  fi
 
   # Ghostty config
-  einf "Linking Ghostty config"
-  backup_file "$HOME/.config/ghostty/config"
-  link "$DOTFILES_CONFIGS/ghostty" "$HOME/.config/ghostty"
-
-  einf "Linking github configs"
+  if $IS_MACOS; then
+    einf "Linking Ghostty config"
+    backup_file "$HOME/.config/ghostty/config"
+    link "$DOTFILES_CONFIGS/ghostty" "$HOME/.config/ghostty"
+  fi
+  
+  einf "Linking git configs"
   link $DOTFILES_SHELL/gitconfig ~/.gitconfig
   link $DOTFILES_SHELL/gitignore ~/.gitignore
 }
