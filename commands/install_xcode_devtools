@@ -5,7 +5,7 @@ source `dirname $0`/helpers
 
 # Install xcode dev tools
 function install_xcode_devtools {
-  if [[ "$(xcode-select --install &> /dev/null)" != *"already installed"* ]]; then
+  if xcode-select -p &> /dev/null; then
     einf "Xcode developer tools is already installed... skipping"
     return
   fi
