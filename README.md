@@ -2,9 +2,20 @@
 
 Personal dotfiles with cross-platform support (macOS, Linux, dev containers).
 
-## Installation
+## Quick Start (fresh system)
 
-### macOS
+```bash
+curl -fsSL https://raw.githubusercontent.com/psd-coder/dotfiles/master/bootstrap.sh | bash
+```
+
+Minimal install (dev containers):
+```bash
+curl -fsSL https://raw.githubusercontent.com/psd-coder/dotfiles/master/bootstrap.sh | DOTFILES_MINIMAL=true bash
+```
+
+## Manual Installation
+
+If you already have git and make:
 
 ```bash
 git clone https://github.com/psd-coder/dotfiles.git ~/.dotfiles
@@ -12,36 +23,22 @@ cd ~/.dotfiles
 make install
 ```
 
-Installs: Xcode CLI tools, Homebrew, packages from Brewfile, shell configs, macOS preferences.
+## What Gets Installed
 
-### Linux
+| Platform | Packages |
+|----------|----------|
+| macOS | Xcode CLI, Homebrew, Brewfile packages, shell configs, system preferences |
+| Linux | apt packages, fnm, Node.js, shell configs |
+| Minimal | git, zsh, fzf, ripgrep, jq only |
 
-```bash
-git clone https://github.com/psd-coder/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-make install
-```
-
-Installs: apt packages, fnm, Node.js, shell configs.
-
-### Dev Container (minimal)
+## Individual Targets
 
 ```bash
-git clone https://github.com/psd-coder/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-DOTFILES_MINIMAL=true make install
-```
-
-Installs only essential packages (git, zsh, fzf, ripgrep, jq).
-
-### Individual Targets
-
-```bash
-make install_apt          # Linux: install apt packages
-make install_brew_bundle  # macOS: install Homebrew packages
+make install_apt          # Linux: apt packages
+make install_brew_bundle  # macOS: Homebrew packages
 make setup_env            # Link shell/editor configs
-make setup_node           # Install fnm + Node.js + pnpm
-make setup_os             # macOS: apply system preferences
+make setup_node           # fnm + Node.js + pnpm
+make setup_os             # macOS: system preferences
 ```
 
 ## Manual settings:
