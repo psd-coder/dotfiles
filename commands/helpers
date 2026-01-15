@@ -3,6 +3,19 @@
 # import helpers
 source `dirname $0`/../shell/functions
 
+# OS Detection
+OS_TYPE="$(uname -s)"
+if [[ "$OS_TYPE" == "Darwin" ]]; then
+  IS_MACOS=true
+  IS_LINUX=false
+else
+  IS_MACOS=false
+  IS_LINUX=true
+fi
+
+# Minimal mode for dev containers
+IS_MINIMAL=${DOTFILES_MINIMAL:-false}
+
 DOTFILES=~/.dotfiles
 DOTFILES_SHELL=$DOTFILES/shell
 DOTFILES_CONFIGS=$DOTFILES/configs
@@ -11,6 +24,31 @@ DOTFILES_PACKAGES=$DOTFILES/pkgs
 # Directory / File specific
 BREW_BUNDLE_FILE=$DOTFILES_PACKAGES/Brewfile
 NPM_PACKAGES=$DOTFILES_PACKAGES/npm
+
+# Platform-specific path functions
+function get_vscode_config_dir {
+  if $IS_MACOS; then
+    echo "$HOME/Library/Application Support/Code/User"
+  else
+    echo "$HOME/.config/Code/User"
+  fi
+}
+
+function get_pnpm_home {
+  if $IS_MACOS; then
+    echo "$HOME/Library/pnpm"
+  else
+    echo "$HOME/.local/share/pnpm"
+  fi
+}
+
+function get_1password_agent_sock {
+  if $IS_MACOS; then
+    echo "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  else
+    echo "$HOME/.1password/agent.sock"
+  fi
+}
 
 # Logging
 WARN='\033[0;31m'
@@ -75,6 +113,10 @@ function reload_shell {
 }
 
 function ensure_brew {
+  if ! $IS_MACOS; then
+    return 1
+  fi
+
   if type "brew" > /dev/null 2>&1; then
     return 0
   fi
@@ -85,6 +127,10 @@ function ensure_brew {
 }
 
 function ensure_brew_package {
+  if ! $IS_MACOS; then
+    return 1
+  fi
+
   ensure_brew
 
   if brew list "$1" &> /dev/null; then
