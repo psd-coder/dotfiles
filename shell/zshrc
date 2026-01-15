@@ -10,18 +10,17 @@ source $HOME/.exports.sh
 source $HOME/.antidote.sh
 source $HOME/.node.sh
 source $HOME/.aliases.sh
-source ~/.iterm2_shell_integration.zsh
-eval "$(direnv hook zsh)" # Direnv hook
-eval "$(navi widget zsh)" # Navi shell widget, it is assigned to Ctrl+G
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
+[[ -f ~/.iterm2_shell_integration.zsh ]] && source ~/.iterm2_shell_integration.zsh
+command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
+command -v navi &> /dev/null && eval "$(navi widget zsh)"
+command -v starship &> /dev/null && eval "$(starship init zsh)"
+command -v zoxide &> /dev/null && eval "$(zoxide init zsh)"
 
 # tabtab source for packages
-# uninstall by removing these lines
-[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && source ~/.config/tabtab/zsh/__tabtab.zsh
 
 # Enable completions
-fpath=($HOME/.docker/completions $fpath)
+[[ -d $HOME/.docker/completions ]] && fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
 compinit -d ~/.zcompdump
 
