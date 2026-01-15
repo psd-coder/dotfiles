@@ -6,8 +6,8 @@ install:
 	@${MAKE} install_brew
 	@${MAKE} install_rosetta
 	@${MAKE} install_brew_bundle
-	@${MAKE} setup_env
 	@${MAKE} setup_node
+	@${MAKE} setup_env
 	@${MAKE} setup_os
 
 
