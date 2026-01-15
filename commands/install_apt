@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# import helpers
+source "$(dirname "$0")/helpers"
+
+function install_apt_packages {
+  if ! $IS_LINUX; then
+    einf "Not on Linux, skipping apt packages"
+    return
+  fi
+
+  einf "Updating apt"
+  sudo apt update
+
+  local pkg_file="$DOTFILES_PACKAGES/apt"
+  if [[ "$IS_MINIMAL" == "true" ]]; then
+    pkg_file="$DOTFILES_PACKAGES/apt.minimal"
+  fi
+
+  einf "Installing packages from $pkg_file"
+  xargs -a "$pkg_file" sudo apt install -y
+
+  # Install starship (not in apt)
+  if ! command -v starship &> /dev/null; then
+    einf "Installing starship"
+    curl -sS https://starship.rs/install.sh | sh -s -- -y
+  fi
+
+  # Install zoxide (not in apt on older Ubuntu)
+  if ! command -v zoxide &> /dev/null; then
+    einf "Installing zoxide"
+    curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+  fi
+}
+
+askdo install_apt_packages "Install apt packages?"
