@@ -24,6 +24,10 @@ function setup_node {
   einf "Installing latest LTS node via mise"
   mise use -g node@lts
 
+  # Set PNPM_HOME before using pnpm
+  export PNPM_HOME="$(get_pnpm_home)"
+  export PATH="$PNPM_HOME:$PATH"
+
   if ! command -v pnpm &> /dev/null; then
     einf "Installing pnpm"
     corepack enable
