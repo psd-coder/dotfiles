@@ -5,11 +5,7 @@ source `dirname $0`/helpers
 
 # Install brew
 function install_brew {
-  # Check if brew is in PATH or at standard install locations
-  if type "brew" > /dev/null 2>&1; then
-    einf "Brew already installed... skipping"
-    return
-  elif [[ -x /opt/homebrew/bin/brew ]]; then
+  if type "brew" > /dev/null 2>&1 || [[ -x /opt/homebrew/bin/brew ]]; then
     einf "Brew already installed... skipping"
     return
   fi
