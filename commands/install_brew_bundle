@@ -12,7 +12,8 @@ function install_brew_bundle {
   brew update
 
   einf "Installing brew bundle (taps, casks, brews, vscode extensions)"
-  brew bundle --file "$BREW_BUNDLE_FILE" --no-mas
+  MAS_SKIP=$(grep '^mas ' "$BREW_BUNDLE_FILE" | sed 's/mas "\([^"]*\)".*/\1/' | tr '\n' ' ')
+  HOMEBREW_BUNDLE_MAS_SKIP="$MAS_SKIP" brew bundle --file "$BREW_BUNDLE_FILE"
 
   reload_shell
 }
@@ -24,7 +25,12 @@ function install_mas_apps {
   fi
 
   einf "Installing Mac App Store apps"
-  brew bundle --file "$BREW_BUNDLE_FILE" --mas
+  grep '^mas ' "$BREW_BUNDLE_FILE" | while read -r line; do
+    id=$(echo "$line" | grep -o 'id: [0-9]*' | cut -d' ' -f2)
+    name=$(echo "$line" | sed 's/mas "\([^"]*\)".*/\1/')
+    einf "Installing $name..."
+    mas install "$id"
+  done
 }
 
 askdo install_brew_bundle "Install brew bundle?"
