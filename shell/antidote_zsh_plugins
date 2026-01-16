@@ -1,6 +1,9 @@
 # .zsh_plugins.txt - comments begin with "#"
 # It is used by antidote zsh package manager to install plugins
 
+# Required for kind:defer to work
+romkatv/zsh-defer
+
 ohmyzsh/ohmyzsh path:plugins/docker kind:fpath
 ohmyzsh/ohmyzsh path:plugins/docker-compose kind:fpath
 ohmyzsh/ohmyzsh path:plugins/command-not-found kind:fpath
