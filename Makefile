@@ -1,4 +1,4 @@
-.PHONY: install install_macos install_linux install_xcode_devtools install_brew install_rosetta install_brew_bundle install_apt setup_env setup_node setup_os backup uninstall
+.PHONY: install install_macos install_linux install_xcode_devtools install_brew install_brew_bundle install_apt setup_env setup_node setup_os backup uninstall
 
 UNAME := $(shell uname -s)
 
@@ -16,7 +16,6 @@ endif
 install_macos:
 	@${MAKE} install_xcode_devtools
 	@${MAKE} install_brew
-	@${MAKE} install_rosetta
 	@${MAKE} install_brew_bundle
 	@${MAKE} setup_node
 	@${MAKE} setup_env
@@ -33,9 +32,6 @@ install_xcode_devtools:
 
 install_brew:
 	@sh ./commands/install_brew
-
-install_rosetta:
-	@sh ./commands/install_rosetta
 
 install_brew_bundle:
 	@sh ./commands/install_brew_bundle
