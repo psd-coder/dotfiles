@@ -38,6 +38,12 @@ function setup_env {
   backup_and_link_file "$SSH_CONFIG" "$HOME/.ssh/config" && chmod 0700 ~/.ssh/config
   backup_and_link_file "$DOTFILES_CONFIGS/ssh/allowed_signers" "$HOME/.ssh/allowed_signers" && chmod 0600 ~/.ssh/allowed_signers
 
+  # Add GitHub to known_hosts to avoid SSH prompts when cloning
+  if ! grep -q "github.com" "$HOME/.ssh/known_hosts" 2>/dev/null; then
+    einf "Adding GitHub to SSH known_hosts"
+    ssh-keyscan -t ed25519 github.com >> "$HOME/.ssh/known_hosts" 2>/dev/null
+  fi
+
   einf "Linking editor configs"
   VSCODE_CONFIG_DIR="$(get_vscode_config_dir)"
   create_dir_if_not_exists "$VSCODE_CONFIG_DIR"
