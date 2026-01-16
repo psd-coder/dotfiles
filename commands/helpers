@@ -64,9 +64,15 @@ function link { ln -sF "$1" "$2"; }
 
 # Ask then take action function
 function askdo {
-  eask "$2"
-  read -r choice
-  case "$choice" in y|Y|yes|YES ) $1; return;; esac
+  while true; do
+    eask "$2"
+    read -r choice
+    case "$choice" in
+      y|Y|yes|YES ) $1; return;;
+      n|N|no|NO ) return;;
+      * ) ewrn "Please answer y or n";;
+    esac
+  done
 }
 
 # Ask sudo once
