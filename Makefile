@@ -28,28 +28,28 @@ install_linux:
 	@${MAKE} setup_env
 
 install_xcode_devtools:
-	@sh ./commands/install_xcode_devtools
+	@./commands/install_xcode_devtools
 
 install_brew:
-	@sh ./commands/install_brew
+	@./commands/install_brew
 
 install_brew_bundle:
-	@sh ./commands/install_brew_bundle
+	@./commands/install_brew_bundle
 
 install_apt:
-	@sh ./commands/install_apt
+	@./commands/install_apt
 
 setup_env:
-	@sh ./commands/setup_env
+	@./commands/setup_env
 
 setup_node:
-	@sh ./commands/setup_node
+	@./commands/setup_node
 
 setup_os:
-	@sh ./commands/setup_os
+	@./commands/setup_os
 
 backup:
-	@sh ./commands/backup
+	@./commands/backup
 
 uninstall:
-	@sh ./commands/uninstall
+	@./commands/uninstall
