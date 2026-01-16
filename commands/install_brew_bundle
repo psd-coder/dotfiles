@@ -14,8 +14,6 @@ function install_brew_bundle {
   einf "Installing brew bundle (taps, casks, brews, vscode extensions)"
   MAS_SKIP=$(grep '^mas ' "$BREW_BUNDLE_FILE" | sed 's/mas "\([^"]*\)".*/\1/' | tr '\n' ' ')
   HOMEBREW_BUNDLE_MAS_SKIP="$MAS_SKIP" brew bundle --file "$BREW_BUNDLE_FILE"
-
-  reload_shell
 }
 
 function install_mas_apps {
