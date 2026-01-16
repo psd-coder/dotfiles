@@ -11,10 +11,21 @@ function install_brew_bundle {
   einf "Updating brew"
   brew update
 
-  einf "Installing brew bundle (taps & casks & brews & apps)"
-  brew bundle --file "$BREW_BUNDLE_FILE"
+  einf "Installing brew bundle (taps, casks, brews, vscode extensions)"
+  brew bundle --file "$BREW_BUNDLE_FILE" --no-mas
 
   reload_shell
 }
 
+function install_mas_apps {
+  if ! command -v mas &> /dev/null; then
+    eerr "mas not installed, skipping App Store apps"
+    return
+  fi
+
+  einf "Installing Mac App Store apps"
+  brew bundle --file "$BREW_BUNDLE_FILE" --mas
+}
+
 askdo install_brew_bundle "Install brew bundle?"
+askdo install_mas_apps "Install Mac App Store apps? (requires Apple ID login)"
