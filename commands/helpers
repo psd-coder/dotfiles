@@ -60,7 +60,11 @@ function ewrn { echo "${FG}[${WARN}!${FG}] ${1}${NC}"; }
 function eerr { echo "${FG}[${WARN}x${FG}] ${1}${NC}"; }
 function einf { echo "${FG}[i] ${1}${NC}"; }
 function eask { printf "${FG}[?] ${1} (y/n)${NC} "; }
-function link { ln -sF "$1" "$2"; }
+function link {
+  # Remove existing file/symlink if it exists
+  [[ -e "$2" || -L "$2" ]] && rm -f "$2"
+  ln -s "$1" "$2"
+}
 
 # Ask then take action function
 function askdo {
