@@ -20,12 +20,14 @@ install_macos:
 	@${MAKE} setup_node
 	@${MAKE} setup_env
 	@${MAKE} setup_os
+	@echo "\n✓ Installation complete! Open a new terminal to use your dotfiles."
 
 # Linux installation flow
 install_linux:
 	@${MAKE} install_apt
 	@${MAKE} setup_node
 	@${MAKE} setup_env
+	@echo "\n✓ Installation complete! Open a new terminal to use your dotfiles."
 
 install_xcode_devtools:
 	@./commands/install_xcode_devtools

@@ -3,13 +3,14 @@
 # import helpers
 source `dirname $0`/helpers
 
-# Install brew
+# Setup macOS preferences
 function setup_os {
-  einf "Configuring macOS"
+  einf "Configuring macOS system preferences"
   sudokeepalive
   sh $DOTFILES_SHELL/macos
 
-  einf "Now you can reload your shell"
+  einf "macOS configuration complete!"
+  ewrn "Some changes require logout/restart to take effect"
 }
 
 askdo setup_os "Setup os?"
