@@ -12,7 +12,5 @@ export LS_COLORS='di=1;34:ln=1;36:so=1;31:pi=1;33:ex=1;32:bd=1;34;46:cd=1;34;43:
 export PNPM_HOME="$HOME/.local/share/pnpm"
 path_prepend "$PNPM_HOME"
 
-# fnm (Fast Node Manager) - installed via script on Linux
-if [[ -d "$HOME/.local/share/fnm" ]]; then
-  path_prepend "$HOME/.local/share/fnm"
-fi
+# mise - installed to ~/.local/bin on Linux
+path_prepend "$HOME/.local/bin"

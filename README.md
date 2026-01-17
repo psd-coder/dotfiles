@@ -28,7 +28,7 @@ make install
 | Platform | Packages |
 |----------|----------|
 | macOS | Xcode CLI, Homebrew, Brewfile packages, shell configs, system preferences |
-| Linux | apt packages, fnm, Node.js, shell configs |
+| Linux | apt packages, mise, Node.js, shell configs |
 | Minimal | git, zsh, fzf, ripgrep, jq only |
 
 ## Individual Targets
@@ -37,7 +37,7 @@ make install
 make install_apt          # Linux: apt packages
 make install_brew_bundle  # macOS: Homebrew packages
 make setup_env            # Link shell/editor configs
-make setup_node           # fnm + Node.js + pnpm
+make setup_node           # mise + Node.js + pnpm
 make setup_os             # macOS: system preferences
 ```
 
