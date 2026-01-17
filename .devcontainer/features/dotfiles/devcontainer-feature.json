@@ -1,0 +1,28 @@
+{
+  "id": "dotfiles",
+  "version": "1.0.0",
+  "name": "Dotfiles",
+  "description": "Clone and install dotfiles repository",
+  "options": {
+    "repository": {
+      "type": "string",
+      "default": "",
+      "description": "Dotfiles repository URL or owner/repo"
+    },
+    "branch": {
+      "type": "string",
+      "default": "",
+      "description": "Branch to checkout"
+    },
+    "targetPath": {
+      "type": "string",
+      "default": "~/.dotfiles",
+      "description": "Where to clone the dotfiles"
+    },
+    "installCommand": {
+      "type": "string",
+      "default": "",
+      "description": "Install script to run"
+    }
+  }
+}
