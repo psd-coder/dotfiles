@@ -39,8 +39,8 @@ function setup_env {
   else
     SSH_CONFIG="$DOTFILES_CONFIGS/ssh/config.linux"
   fi
-  backup_and_link_file "$SSH_CONFIG" "$HOME/.ssh/config" && chmod 0700 ~/.ssh/config
-  backup_and_link_file "$DOTFILES_CONFIGS/ssh/allowed_signers" "$HOME/.ssh/allowed_signers" && chmod 0600 ~/.ssh/allowed_signers
+  backup_and_link_file "$SSH_CONFIG" "$HOME/.ssh/config" && chmod 0700 "$HOME/.ssh/config"
+  backup_and_link_file "$DOTFILES_CONFIGS/ssh/allowed_signers" "$HOME/.ssh/allowed_signers" && chmod 0600 "$HOME/.ssh/allowed_signers"
 
   # Add GitHub to known_hosts to avoid SSH prompts when cloning
   if ! grep -q "github.com" "$HOME/.ssh/known_hosts" 2>/dev/null; then
@@ -72,13 +72,16 @@ function setup_env {
   
   # Pre-clone antidote plugins BEFORE linking gitconfig
   # This ensures plugins are cloned via HTTPS (no URL rewrite active yet)
-  if command -v brew &> /dev/null; then
-    ANTIDOTE_PATH="$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh"
-    if [[ -f "$ANTIDOTE_PATH" ]]; then
-      einf "Pre-cloning antidote plugins via HTTPS"
-      source "$ANTIDOTE_PATH"
-      antidote bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.zsh
-    fi
+  ANTIDOTE_PATH=""
+  if [[ -f "${HOMEBREW_PREFIX:-/opt/homebrew}/opt/antidote/share/antidote/antidote.zsh" ]]; then
+    ANTIDOTE_PATH="${HOMEBREW_PREFIX:-/opt/homebrew}/opt/antidote/share/antidote/antidote.zsh"
+  elif [[ -f "$HOME/.antidote/antidote.zsh" ]]; then
+    ANTIDOTE_PATH="$HOME/.antidote/antidote.zsh"
+  fi
+  if [[ -n "$ANTIDOTE_PATH" ]]; then
+    einf "Pre-cloning antidote plugins via HTTPS"
+    source "$ANTIDOTE_PATH"
+    antidote bundle < "$HOME/.zsh_plugins.txt" > "$HOME/.zsh_plugins.zsh"
   fi
 
   einf "Linking git configs"

@@ -1,6 +1,10 @@
-# Load antidote (use HOMEBREW_PREFIX set in platform file to avoid slow brew --prefix)
-ANTIDOTE_PATH="${HOMEBREW_PREFIX:-/opt/homebrew}/opt/antidote/share/antidote/antidote.zsh"
-if [[ -f "$ANTIDOTE_PATH" ]]; then
-  source "$ANTIDOTE_PATH"
+# Load antidote
+# macOS: installed via Homebrew
+# Linux: clone to ~/.antidote with: git clone --depth=1 https://github.com/mattmc3/antidote.git ~/.antidote
+if [[ -f "${HOMEBREW_PREFIX:-/opt/homebrew}/opt/antidote/share/antidote/antidote.zsh" ]]; then
+  source "${HOMEBREW_PREFIX:-/opt/homebrew}/opt/antidote/share/antidote/antidote.zsh"
+  antidote load
+elif [[ -f "$HOME/.antidote/antidote.zsh" ]]; then
+  source "$HOME/.antidote/antidote.zsh"
   antidote load
 fi

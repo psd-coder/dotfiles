@@ -1,6 +1,10 @@
 # System Management
 alias reload='exec /bin/zsh -l'
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
+else
+  alias update='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'
+fi
 
 # Navigation
 alias ..="cd .."
