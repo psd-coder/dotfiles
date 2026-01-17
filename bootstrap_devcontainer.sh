@@ -1,13 +1,21 @@
 #!/bin/bash
 set -e
 
-DOTFILES_DIR="$HOME/.dotfiles"
+# Get the directory where this script is located (the cloned dotfiles repo)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_DIR="${DOTFILES_DIR:-$SCRIPT_DIR}"
+
+# Use sudo only if not root
+SUDO=""
+if [[ "$(id -u)" -ne 0 ]]; then
+  SUDO="sudo"
+fi
 
 # Install minimal dependencies
 if command -v apt &> /dev/null; then
   echo "[i] Installing minimal apt packages..."
-  sudo apt update
-  sudo apt install -y zsh git curl vim fzf ripgrep jq
+  $SUDO apt update
+  $SUDO apt install -y zsh git curl vim fzf ripgrep jq
 fi
 
 # Install antidote on Linux
@@ -48,10 +56,10 @@ setup_env() {
 }
 setup_env
 
-# Change default shell to zsh
+# Change default shell to zsh (usually doesn't work in containers)
 if [[ "$SHELL" != *"zsh"* ]]; then
-  echo "[i] Changing default shell to zsh..."
-  sudo chsh -s "$(which zsh)" "$(whoami)" 2>/dev/null || true
+  echo "[i] Attempting to change default shell to zsh..."
+  $SUDO chsh -s "$(which zsh)" "$(whoami)" 2>/dev/null || true
 fi
 
 echo "[i] Devcontainer bootstrap complete!"
