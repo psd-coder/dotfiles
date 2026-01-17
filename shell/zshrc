@@ -31,10 +31,16 @@ else
   [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && source ~/.config/tabtab/zsh/__tabtab.zsh
 fi
 
-# Enable completions with caching (-C skips security check for faster load)
+# Enable completions with caching (-C skips checks for faster load)
 [[ -d $HOME/.docker/completions ]] && fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
 compinit -C -d ~/.zcompdump
+
+# Always rebuild cache in background - compinit detects if rebuild is needed
+# Cost is ~50ms but runs after prompt, so user doesn't notice
+if (( $+functions[zsh-defer] )); then
+  zsh-defer -c 'compinit -d ~/.zcompdump'
+fi
 
 # ZSH options
 unsetopt inc_append_history # Do not share shell history between sessions
