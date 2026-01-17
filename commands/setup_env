@@ -1,7 +1,7 @@
 #!/bin/zsh
 
-# import helpers
-source `dirname $0`/helpers
+# Import helpers
+source "$(dirname "$0")/helpers"
 
 function setup_iterm2_integration {
   if ! $IS_MACOS; then
@@ -20,17 +20,17 @@ function setup_env {
   einf "Linking shell configs"
 
   setup_iterm2_integration
-  link $DOTFILES_SHELL/functions ~/.functions.sh
-  link $DOTFILES_SHELL/exports ~/.exports.sh
-  link $DOTFILES_SHELL/antidote_zsh_plugins ~/.zsh_plugins.txt
-  link $DOTFILES_SHELL/node ~/.node.sh
-  link $DOTFILES_SHELL/aliases ~/.aliases.sh
-  link $DOTFILES_SHELL/antidote ~/.antidote.sh
-  link $DOTFILES_SHELL/profile ~/.profile
-  link $DOTFILES_SHELL/bash_profile ~/.bash_profile
-  link $DOTFILES_SHELL/zshrc ~/.zshrc
+  link "$DOTFILES_SHELL/functions" "$HOME/.functions.sh"
+  link "$DOTFILES_SHELL/exports" "$HOME/.exports.sh"
+  link "$DOTFILES_SHELL/antidote_zsh_plugins" "$HOME/.zsh_plugins.txt"
+  link "$DOTFILES_SHELL/node" "$HOME/.node.sh"
+  link "$DOTFILES_SHELL/aliases" "$HOME/.aliases.sh"
+  link "$DOTFILES_SHELL/antidote" "$HOME/.antidote.sh"
+  link "$DOTFILES_SHELL/profile" "$HOME/.profile"
+  link "$DOTFILES_SHELL/bash_profile" "$HOME/.bash_profile"
+  link "$DOTFILES_SHELL/zshrc" "$HOME/.zshrc"
   create_dir_if_not_exists "$HOME/.config"
-  link $DOTFILES_SHELL/starship.toml ~/.config/starship.toml
+  link "$DOTFILES_SHELL/starship.toml" "$HOME/.config/starship.toml"
 
   einf "Linking ssh"
   create_dir_if_not_exists "$HOME/.ssh"
@@ -82,8 +82,8 @@ function setup_env {
   fi
 
   einf "Linking git configs"
-  link $DOTFILES_SHELL/gitconfig ~/.gitconfig
-  link $DOTFILES_SHELL/gitignore ~/.gitignore
+  link "$DOTFILES_SHELL/gitconfig" "$HOME/.gitconfig"
+  link "$DOTFILES_SHELL/gitignore" "$HOME/.gitignore"
 }
 
 askdo setup_env "Setup environment?"

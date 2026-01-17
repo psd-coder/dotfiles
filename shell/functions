@@ -25,12 +25,12 @@ path_prepend() {
 }
 
 grep_projects() {
-  grep -i -R --exclude-dir={node_modules,build,public,static,webpack,tmp,.cache,dist,dql,.local_data,jspm_packages,.yarn,vendor,.next,storybook-static} --include={\*.js,\*.jsx,\*.ts,\*.tsx} $1 ~/projects
+  grep -i -R --exclude-dir={node_modules,build,public,static,webpack,tmp,.cache,dist,dql,.local_data,jspm_packages,.yarn,vendor,.next,storybook-static} --include={\*.js,\*.jsx,\*.ts,\*.tsx} "$1" "$HOME/projects"
 }
 
 # Removes Git branches that have been merged into master.
 git_sweep() {
-  git fetch --prune && for branch in $(git for-each-ref --format='%(if:equals=[gone])%(upstream:track)%(then)%(refname:short)%(end)' refs/heads); do git branch -D $branch; done
+  git fetch --prune && for branch in $(git for-each-ref --format='%(if:equals=[gone])%(upstream:track)%(then)%(refname:short)%(end)' refs/heads); do git branch -D "$branch"; done
 }
 
 # Removes all nested `node_modules` directories from the target directory.

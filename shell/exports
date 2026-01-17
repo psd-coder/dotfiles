@@ -1,7 +1,5 @@
 # Common exports (platform-specific in shell/platform/)
 
-export DEFAULT_USER=`whoami`
-
 # Languages
 export LANG='en_US.UTF-8';
 export LC_ALL='en_US.UTF-8';

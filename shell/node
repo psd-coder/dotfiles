@@ -7,8 +7,7 @@ if command -v mise &> /dev/null; then
   eval "$(mise activate zsh)"
 fi
 
-# pnpm (PNPM_HOME set in platform-specific file)
-alias pnpm="corepack pnpm"
+# pnpm - PNPM_HOME set in platform-specific file
+# Corepack aliases defined in shell/aliases
 export COREPACK_ENABLE_AUTO_PIN=0
-# Note: PNPM_HOME already added to PATH in platform file, no need for $(pnpm global bin)
 path_prepend "./node_modules/.bin"

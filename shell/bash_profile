@@ -1,4 +1,2 @@
 export PATH="$PATH:$HOME/Library/pnpm/global/5/node_modules"
 eval "$(mise activate bash)"
-export COREPACK_ENABLE_AUTO_PIN=0
-alias pnpm="corepack pnpm"
