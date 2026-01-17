@@ -61,8 +61,8 @@ function eerr { echo "${FG}[${WARN}x${FG}] ${1}${NC}"; }
 function einf { echo "${FG}[i] ${1}${NC}"; }
 function eask { printf "${FG}[?] ${1} (y/n)${NC} "; }
 function link {
-  # Remove existing file/symlink if it exists
-  [[ -e "$2" || -L "$2" ]] && rm -f "$2"
+  # Remove existing file/symlink/directory if it exists
+  [[ -e "$2" || -L "$2" ]] && rm -rf "$2"
   ln -s "$1" "$2"
 }
 

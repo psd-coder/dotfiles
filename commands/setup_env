@@ -56,7 +56,6 @@ function setup_env {
   if $IS_MACOS; then
     KARABINER_FOLDER="$HOME/.config/karabiner"
     backup_file "$KARABINER_FOLDER/karabiner.json"
-    create_dir_if_not_exists "$HOME/.config/karabiner"
     link "$DOTFILES_CONFIGS/karabiner" "$KARABINER_FOLDER"
   fi
 
