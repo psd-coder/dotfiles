@@ -66,6 +66,17 @@ function setup_env {
     link "$DOTFILES_CONFIGS/ghostty" "$HOME/.config/ghostty"
   fi
   
+  # Pre-clone antidote plugins BEFORE linking gitconfig
+  # This ensures plugins are cloned via HTTPS (no URL rewrite active yet)
+  if command -v brew &> /dev/null; then
+    ANTIDOTE_PATH="$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh"
+    if [[ -f "$ANTIDOTE_PATH" ]]; then
+      einf "Pre-cloning antidote plugins via HTTPS"
+      source "$ANTIDOTE_PATH"
+      antidote bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.zsh
+    fi
+  fi
+
   einf "Linking git configs"
   link $DOTFILES_SHELL/gitconfig ~/.gitconfig
   link $DOTFILES_SHELL/gitignore ~/.gitignore
