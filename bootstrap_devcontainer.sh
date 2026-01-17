@@ -38,23 +38,27 @@ fi
 
 # Run minimal setup
 echo "[i] Setting up dotfiles..."
-cd "$DOTFILES_DIR"
-export DOTFILES_MINIMAL=1
-source commands/helpers
-setup_env() {
-  link "$DOTFILES_SHELL/functions" "$HOME/.functions.sh"
-  link "$DOTFILES_SHELL/exports" "$HOME/.exports.sh"
-  link "$DOTFILES_SHELL/antidote_zsh_plugins" "$HOME/.zsh_plugins.txt"
-  link "$DOTFILES_SHELL/node" "$HOME/.node.sh"
-  link "$DOTFILES_SHELL/aliases" "$HOME/.aliases.sh"
-  link "$DOTFILES_SHELL/antidote" "$HOME/.antidote.sh"
-  link "$DOTFILES_SHELL/zshrc" "$HOME/.zshrc"
-  create_dir_if_not_exists "$HOME/.config"
-  link "$DOTFILES_SHELL/starship.toml" "$HOME/.config/starship.toml"
-  link "$DOTFILES_SHELL/gitconfig" "$HOME/.gitconfig"
-  link "$DOTFILES_SHELL/gitignore" "$HOME/.gitignore"
+
+# Helper functions (inline to avoid sourcing issues)
+link() {
+  [[ -e "$2" || -L "$2" ]] && rm -rf "$2"
+  ln -s "$1" "$2"
 }
-setup_env
+
+# Create symlinks
+SHELL_DIR="$DOTFILES_DIR/shell"
+mkdir -p "$HOME/.config"
+
+link "$SHELL_DIR/functions" "$HOME/.functions.sh"
+link "$SHELL_DIR/exports" "$HOME/.exports.sh"
+link "$SHELL_DIR/antidote_zsh_plugins" "$HOME/.zsh_plugins.txt"
+link "$SHELL_DIR/node" "$HOME/.node.sh"
+link "$SHELL_DIR/aliases" "$HOME/.aliases.sh"
+link "$SHELL_DIR/antidote" "$HOME/.antidote.sh"
+link "$SHELL_DIR/zshrc" "$HOME/.zshrc"
+link "$SHELL_DIR/starship.toml" "$HOME/.config/starship.toml"
+link "$SHELL_DIR/gitconfig" "$HOME/.gitconfig"
+link "$SHELL_DIR/gitignore" "$HOME/.gitignore"
 
 # Change default shell to zsh (usually doesn't work in containers)
 if [[ "$SHELL" != *"zsh"* ]]; then
