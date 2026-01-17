@@ -10,19 +10,31 @@ source $HOME/.exports.sh
 source $HOME/.antidote.sh
 source $HOME/.node.sh
 source $HOME/.aliases.sh
-[[ -f ~/.iterm2_shell_integration.zsh ]] && source ~/.iterm2_shell_integration.zsh
-command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
-command -v navi &> /dev/null && eval "$(navi widget zsh)"
+
+# Prompt - must be immediate (not deferred)
 command -v starship &> /dev/null && eval "$(starship init zsh)"
-command -v zoxide &> /dev/null && eval "$(zoxide init zsh)"
 
-# tabtab source for packages
-[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && source ~/.config/tabtab/zsh/__tabtab.zsh
+# Defer non-critical tool inits for faster startup
+# zsh-defer is loaded via antidote
+if (( $+functions[zsh-defer] )); then
+  zsh-defer -c '[[ -f ~/.iterm2_shell_integration.zsh ]] && source ~/.iterm2_shell_integration.zsh'
+  zsh-defer -c 'command -v direnv &> /dev/null && eval "$(direnv hook zsh)"'
+  zsh-defer -c 'command -v navi &> /dev/null && eval "$(navi widget zsh)"'
+  zsh-defer -c 'command -v zoxide &> /dev/null && eval "$(zoxide init zsh)"'
+  zsh-defer -c '[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && source ~/.config/tabtab/zsh/__tabtab.zsh'
+else
+  # Fallback if zsh-defer not available
+  [[ -f ~/.iterm2_shell_integration.zsh ]] && source ~/.iterm2_shell_integration.zsh
+  command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
+  command -v navi &> /dev/null && eval "$(navi widget zsh)"
+  command -v zoxide &> /dev/null && eval "$(zoxide init zsh)"
+  [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && source ~/.config/tabtab/zsh/__tabtab.zsh
+fi
 
-# Enable completions
+# Enable completions with caching (-C skips security check for faster load)
 [[ -d $HOME/.docker/completions ]] && fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
-compinit -d ~/.zcompdump
+compinit -C -d ~/.zcompdump
 
 # ZSH options
 unsetopt inc_append_history # Do not share shell history between sessions
