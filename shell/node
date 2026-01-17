@@ -10,7 +10,5 @@ fi
 # pnpm (PNPM_HOME set in platform-specific file)
 alias pnpm="corepack pnpm"
 export COREPACK_ENABLE_AUTO_PIN=0
-if command -v pnpm &> /dev/null; then
-  path_prepend "$(pnpm global bin)"
-fi
+# Note: PNPM_HOME already added to PATH in platform file, no need for $(pnpm global bin)
 path_prepend "./node_modules/.bin"
