@@ -2,9 +2,9 @@
 export NODE_REPL_HISTORY=~/.node_history; # Persistent REPL history for node
 export NODE_REPL_HISTORY_SIZE='32768'; # Allow 32^3 entries; default is 1000
 
-# fnm (Fast Node Manager)
-if command -v fnm &> /dev/null; then
-  eval "$(fnm env --use-on-cd --shell zsh)"
+# mise (universal version manager)
+if command -v mise &> /dev/null; then
+  eval "$(mise activate zsh)"
 fi
 
 # pnpm

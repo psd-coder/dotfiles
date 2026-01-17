@@ -3,14 +3,26 @@
 # import helpers
 source `dirname $0`/helpers
 
-function setup_node {
-  if ! type "fnm" > /dev/null 2>&1; then
-    eerr "FNM must be installed first..."; exit 1
+function ensure_mise {
+  if command -v mise &> /dev/null; then
+    return 0
   fi
 
+  if $IS_MACOS; then
+    ensure_brew_package "mise"
+  else
+    einf "Installing mise via script"
+    curl https://mise.run | sh
+    export PATH="$HOME/.local/bin:$PATH"
+  fi
+}
 
-  einf "Installing latest FNM node"
-  fnm install --lts
+function setup_node {
+  ensure_mise
+  eval "$(mise activate zsh)"
+
+  einf "Installing latest LTS node via mise"
+  mise use -g node@lts
 
   if ! type "pnpm" > /dev/null 2>&1; then
     einf "Installing pnpm"
