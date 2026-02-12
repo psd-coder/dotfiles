@@ -36,10 +36,14 @@ function setup_env {
 
   # Karabiner config
   KARABINER_FOLDER="$HOME/.config/karabiner"
-
   backup_file "$KARABINER_FOLDER/karabiner.json"
   create_dir_if_not_exists "$HOME/.config/karabiner"
   link "$DOTFILES_CONFIGS/karabiner" "$KARABINER_FOLDER"
+
+  # Ghostty config
+  einf "Linking Ghostty config"
+  backup_file "$HOME/.config/ghostty/config"
+  link "$DOTFILES_CONFIGS/ghostty" "$HOME/.config/ghostty"
 
   einf "Linking github configs"
   link $DOTFILES_SHELL/gitconfig ~/.gitconfig

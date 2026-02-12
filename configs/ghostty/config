@@ -1,0 +1,11 @@
+working-directory = /Users/psdcoder/projects
+shell-integration = zsh
+font-family = FiraCode Nerd Font Mono
+font-size = 18
+# scrollback-limit in bytes, roughly 125,000 lines
+scrollback-limit = 100000000
+
+window-colorspace = display-p3
+theme = plastic
+quit-after-last-window-closed = true
+copy-on-select = clipboard
