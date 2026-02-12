@@ -1,3 +1,6 @@
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # oh-my-zsh
 export DEFAULT_USER=`whoami`
 
@@ -13,15 +16,16 @@ export LESSCHARSET=utf-8; # Fix russian text in less, git diff, etc.
 export TERM=xterm-256color
 export CLICOLOR=1
 export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
-export LESS_TERMCAP_md="${yellow}"; # Highlight section titles in man pages
 
 # Setup editor
 export EDITOR='vim';
 
 # Path Sources
-eval "$(/opt/homebrew/bin/brew shellenv)"
-path_prepend /usr/local/bin/
 path_prepend "$(brew --prefix)/opt/findutils/libexec/gnubin"
 path_prepend "$(brew --prefix)/opt/coreutils/libexec/gnubin"
 path_prepend "$(brew --prefix)/opt/ruby/bin"
 path_prepend "$(brew --prefix)/opt/crowdin@3/bin"
+path_prepend "$(brew --prefix)/opt/llvm@20/bin"
+path_append "$HOME/.antigravity/antigravity/bin"
+path_append "$HOME/.local/bin"
+path_append /usr/local/bin/
