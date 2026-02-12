@@ -21,7 +21,7 @@ eval "$(zoxide init zsh)"
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
 # Enable completions
-fpath=(/Users/psdcoder/.docker/completions $fpath)
+fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
 compinit -d ~/.zcompdump
 

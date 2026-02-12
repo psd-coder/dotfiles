@@ -1,4 +1,4 @@
-export PATH="$PATH:/Users/psdcoder/Library/pnpm/global/5/node_modules"
+export PATH="$PATH:$HOME/Library/pnpm/global/5/node_modules"
 eval "$(fnm env --use-on-cd --shell zsh)"
 export COREPACK_ENABLE_AUTO_PIN=0
 alias pnpm="corepack pnpm"
