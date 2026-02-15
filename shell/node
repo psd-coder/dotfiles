@@ -7,8 +7,7 @@ if command -v mise &> /dev/null; then
   eval "$(mise activate zsh)"
 fi
 
-# pnpm
-alias pnpm="corepack pnpm"
+# Corepack aliases defined in shell/aliases
 export COREPACK_ENABLE_AUTO_PIN=0
 export PNPM_HOME="$HOME/Library/pnpm"
 path_prepend "$PNPM_HOME"
