@@ -1,3 +1,5 @@
+auto-update-channel = tip
+
 working-directory = /Users/psdcoder/projects
 shell-integration = zsh
 font-family = FiraCode Nerd Font Mono
