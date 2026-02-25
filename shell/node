@@ -3,9 +3,7 @@ export NODE_REPL_HISTORY=~/.node_history; # Persistent REPL history for node
 export NODE_REPL_HISTORY_SIZE='32768'; # Allow 32^3 entries; default is 1000
 
 # mise (universal version manager)
-if command -v mise &> /dev/null; then
-  eval "$(mise activate zsh)"
-fi
+activate_mise_for_current_shell
 
 # Corepack aliases defined in shell/aliases
 export COREPACK_ENABLE_AUTO_PIN=0

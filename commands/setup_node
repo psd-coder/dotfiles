@@ -19,7 +19,8 @@ function ensure_mise {
 
 function setup_node {
   ensure_mise
-  eval "$(mise activate zsh)"
+  source "$(dirname "$0")/../shell/shared_functions"
+  activate_mise_for_current_shell
 
   einf "Installing latest LTS node via mise"
   mise use -g node@lts

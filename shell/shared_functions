@@ -1,0 +1,39 @@
+# Shared functions for shell configuration and setup scripts
+
+detect_shell_type() {
+  if [ -n "${ZSH_VERSION:-}" ]; then
+    echo "zsh"
+    return
+  fi
+
+  if [ -n "${BASH_VERSION:-}" ]; then
+    echo "bash"
+    return
+  fi
+
+  case "$(basename "${SHELL:-}")" in
+    zsh|bash|sh)
+      echo "$(basename "${SHELL:-}")"
+      ;;
+  esac
+}
+
+activate_mise_for_current_shell() {
+  if ! command -v mise &> /dev/null; then
+    return 0
+  fi
+
+  _activate_mise_shell_type="$(detect_shell_type)"
+
+  if [ "$_activate_mise_shell_type" = "sh" ]; then
+    _activate_mise_shell_type="bash"
+  fi
+
+  if [ "$_activate_mise_shell_type" != "bash" ] && [ "$_activate_mise_shell_type" != "zsh" ]; then
+    unset _activate_mise_shell_type
+    return 0
+  fi
+
+  eval "$(mise activate "$_activate_mise_shell_type")"
+  unset _activate_mise_shell_type
+}
