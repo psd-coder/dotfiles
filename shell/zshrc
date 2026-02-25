@@ -5,6 +5,7 @@ if $ZSH_ENABLE_PROFILING; then
   zmodload zsh/zprof
 fi
 
+source $HOME/.shared_functions.sh
 source $HOME/.functions.sh
 source $HOME/.exports.sh
 source $HOME/.antidote.sh
