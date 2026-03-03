@@ -43,6 +43,13 @@ if (( $+functions[zsh-defer] )); then
   zsh-defer -c 'compinit -d ~/.zcompdump'
 fi
 
+# Force emacs keybindings (zsh auto-switches to vi when EDITOR=vim)
+bindkey -e
+
+# Word navigation: Opt+Left/Right
+bindkey "\eb" backward-word
+bindkey "\ef" forward-word
+
 # ZSH options
 unsetopt inc_append_history # Do not share shell history between sessions
 unsetopt share_history

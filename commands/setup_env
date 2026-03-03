@@ -47,6 +47,11 @@ function setup_env {
   backup_file "$HOME/.config/ghostty/config"
   link "$DOTFILES_CONFIGS/ghostty" "$HOME/.config/ghostty"
 
+  # Tmux config
+  einf "Linking Tmux config"
+  backup_file "$HOME/.tmux.conf"
+  link "$DOTFILES_CONFIGS/tmux.conf" "$HOME/.tmux.conf"
+
   einf "Linking github configs"
   link $DOTFILES_SHELL/gitconfig ~/.gitconfig
   link $DOTFILES_SHELL/gitignore ~/.gitignore

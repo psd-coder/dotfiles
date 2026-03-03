@@ -4,6 +4,8 @@ working-directory = /Users/psdcoder/projects
 shell-integration = zsh
 font-family = FiraCode Nerd Font Mono
 font-size = 18
+cursor-style = bar
+cursor-style-blink = true
 # scrollback-limit in bytes, roughly 125,000 lines
 scrollback-limit = 100000000
 
@@ -11,3 +13,63 @@ window-colorspace = display-p3
 theme = plastic
 quit-after-last-window-closed = true
 copy-on-select = clipboard
+macos-option-as-alt = true
+
+command = direct:/opt/homebrew/bin/tmux new -A -s main
+
+# Shift+Enter: send CSI u sequence so apps (e.g. Claude Code) can distinguish it from Enter
+keybind = shift+enter=text:\x1b[13;2u
+
+# tmux prefix is Ctrl-a => \x01
+# --- Tabs (Ghostty) => tmux windows ---
+keybind = cmd+t=text:\x01t
+
+# Also support Ghostty default tab switching (cmd+alt+left/right):
+keybind = cmd+alt+left=text:\x01{
+keybind = cmd+alt+right=text:\x01}
+
+# Also support cmd+{ / cmd+} (these are cmd+shift+[ and cmd+shift+]):
+keybind = cmd+shift+[=text:\x01{
+keybind = cmd+shift+]=text:\x01}
+
+# --- Splits (Ghostty) => tmux panes ---
+keybind = cmd+d=text:\x01d
+keybind = cmd+shift+d=text:\x01D
+
+# Zoom (Ghostty default)
+keybind = cmd+shift+enter=text:\x01z
+
+# Jump to tmux window 1..9 with Cmd+1..9
+keybind = cmd+digit_1=text:\x011
+keybind = cmd+digit_2=text:\x012
+keybind = cmd+digit_3=text:\x013
+keybind = cmd+digit_4=text:\x014
+keybind = cmd+digit_5=text:\x015
+keybind = cmd+digit_6=text:\x016
+keybind = cmd+digit_7=text:\x017
+keybind = cmd+digit_8=text:\x018
+keybind = cmd+digit_9=text:\x019
+
+# --- Pane navigation ---
+# cmd+opt+arrow
+keybind = cmd+opt+left=text:\x01h
+keybind = cmd+opt+down=text:\x01j
+keybind = cmd+opt+up=text:\x01k
+keybind = cmd+opt+right=text:\x01l
+
+# cmd+[ / cmd+]
+keybind = cmd+[=text:\x01[
+keybind = cmd+]=text:\x01]
+
+# --- Close: cmd+w closes tmux pane, keep Ghostty close on cmd+shift+w ---
+keybind = cmd+w=text:\x01w
+keybind = cmd+shift+w=close_surface
+
+# --- Picker / palette ---
+keybind = cmd+p=text:\x01p
+keybind = cmd+shift+p=toggle_command_palette
+
+# --- Rename / reload ---
+keybind = cmd+r=text:\x01r
+keybind = cmd+s=text:\x01s
+keybind = cmd+shift+r=text:\x01R

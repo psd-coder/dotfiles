@@ -13,6 +13,7 @@ alias c2="awk '{ print \$2 }'"
 alias c3="awk '{ print \$3 }'"
 alias c4="awk '{ print \$4 }'"
 alias h='hivemind'
+alias t="tmux attach -t main || tmux new -s main"
 
 # Docker management
 alias dp='docker ps'
