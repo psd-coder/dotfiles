@@ -2,7 +2,7 @@
   "editor.find.autoFindInSelection": "never",
   "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
-  "editor.fontSize": 13,
+  "editor.fontSize": 14,
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [80, 120],
   "editor.scrollBeyondLastLine": false,
@@ -45,7 +45,7 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.tsdk": "./node_modules/typescript/lib",
-  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorSmoothCaretAnimation": "on",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -63,7 +63,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "stylelint.packageManager": "pnpm",
   "typescript.format.enable": false,
@@ -79,5 +79,6 @@
   "[xml]": {
     "editor.defaultFormatter": "DotJoshJohnson.xml"
   },
-  "workbench.iconTheme": "file-icons"
+  "workbench.iconTheme": "file-icons",
+  "window.zoomLevel": 1.2
 }
