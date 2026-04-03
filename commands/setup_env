@@ -47,10 +47,20 @@ function setup_env {
   backup_file "$HOME/.config/ghostty/config"
   link "$DOTFILES_CONFIGS/ghostty" "$HOME/.config/ghostty"
 
-  # Tmux config
+  # Tmux
   einf "Linking Tmux config"
   backup_file "$HOME/.tmux.conf"
   link "$DOTFILES_CONFIGS/tmux.conf" "$HOME/.tmux.conf"
+  # Tmux Plugin Manager + plugins
+  TPM_DIR="$HOME/.tmux/plugins/tpm"
+  if [ ! -d "$TPM_DIR" ]; then
+    einf "Installing TPM (Tmux Plugin Manager)"
+    git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
+  fi
+  einf "Installing tmux plugins via TPM"
+  tmux start-server 2>/dev/null
+  tmux set-environment -g TMUX_PLUGIN_MANAGER_PATH "$HOME/.tmux/plugins/" 2>/dev/null
+  "$TPM_DIR/bin/install_plugins"
 
   einf "Linking github configs"
   link $DOTFILES_SHELL/gitconfig ~/.gitconfig
