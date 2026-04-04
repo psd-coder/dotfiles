@@ -21,24 +21,28 @@ function setup_env {
   link $DOTFILES_SHELL/starship.toml ~/.config/starship.toml
 
   einf "Linking ssh"
-  backup_and_link_file "$DOTFILES_CONFIGS/ssh/config" "$HOME/.ssh/config" && chmod 0700 ~/.ssh/config
-  backup_and_link_file "$DOTFILES_CONFIGS/ssh/allowed_signers" "$HOME/.ssh/allowed_signers" && chmod 0600 ~/.ssh/allowed_signers
+  backup_and_link_file "$DOTFILES_CONFIGS/ssh/config" "$HOME/.ssh/config"
+  backup_and_link_file "$DOTFILES_CONFIGS/ssh/allowed_signers" "$HOME/.ssh/allowed_signers"
 
   einf "Linking editor configs"
   # VSCode Configuration Files, attempt to remove existing settings and link ours
   backup_and_link_file "$DOTFILES_CONFIGS/vscode-settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
-  backup_and_link_file "$DOTFILES_CONFIGS/vscode-keybindings.json" "$HOME/Library/Application\ Support/Code/User/keybindings.json"
-  backup_and_link_file "$DOTFILES_CONFIGS/vscode.code-snippets" "$HOME/Library/Application\ Support/Code/User/snippets/vscode.code-snippets"
+  backup_and_link_file "$DOTFILES_CONFIGS/vscode-keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
+  backup_and_link_file "$DOTFILES_CONFIGS/vscode.code-snippets" "$HOME/Library/Application Support/Code/User/snippets/vscode.code-snippets"
 
-  # Karabiner config
+  # Karabiner config (directory-level symlink — only backup if not already linked)
   KARABINER_FOLDER="$HOME/.config/karabiner"
-  backup_file "$KARABINER_FOLDER/karabiner.json"
-  create_dir_if_not_exists "$HOME/.config/karabiner"
+  if [ ! -L "$KARABINER_FOLDER" ]; then
+    backup_file "$KARABINER_FOLDER/karabiner.json"
+    create_dir_if_not_exists "$HOME/.config/karabiner"
+  fi
   link "$DOTFILES_CONFIGS/karabiner" "$KARABINER_FOLDER"
 
-  # Ghostty config
+  # Ghostty config (directory-level symlink — only backup if not already linked)
   einf "Linking Ghostty config"
-  backup_file "$HOME/.config/ghostty/config"
+  if [ ! -L "$HOME/.config/ghostty" ]; then
+    backup_file "$HOME/.config/ghostty/config"
+  fi
   link "$DOTFILES_CONFIGS/ghostty" "$HOME/.config/ghostty"
 
   # Tmux

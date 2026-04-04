@@ -22,7 +22,7 @@ function ewrn { echo "${FG}[${WARN}!${FG}] ${1}${NC}"; }
 function eerr { echo "${FG}[${WARN}x${FG}] ${1}${NC}"; }
 function einf { echo "${FG}[i] ${1}${NC}"; }
 function eask { printf "${FG}[?] ${1} (y/n)${NC} "; }
-function link { ln -sF "$1" "$2"; }
+function link { ln -sfn "$1" "$2"; }
 
 # Ask then take action function
 function askdo {
@@ -46,19 +46,18 @@ function create_dir_if_not_exists {
 }
 
 function backup_file {
-  if [ -f "$1" ]; then
+  if [ -e "$1" ] && [ ! -L "$1" ]; then
     mv "$1" "$1.bak"
     einf "File $1 backed up to $1.bak"
-  else
-    eerr "File $1 does not exist"
   fi
 }
 
 function backup_and_link_file {
-  backup_file "$2"
-  if [ $? -eq 0 ]; then
-      link "$1" "$2"
+  if [ -e "$2" ] && [ ! -L "$2" ]; then
+    mv "$2" "$2.bak"
+    einf "File $2 backed up to $2.bak"
   fi
+  link "$1" "$2"
 }
 
 function is_m1_mac {
