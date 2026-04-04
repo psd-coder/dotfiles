@@ -15,7 +15,6 @@ make install
 * Install Logitech Options for correct mouse work, otherwise sometimes strange scroll bugs happen
 * Copy SSH keys or create new ones
 * Import Stats settings from `configs/Stats.ismp`
-* Setup iterm2 to use configuration from the folder: Preferences > General > Preferences: `~/.dotfiles/configs`
 * Setup local languagetool service (see below)
 * Turn on disk encryption in the: System Preperences > Security & Privace > FileVault
 * Login into google account at the system and Google Chrome to sync all profile data

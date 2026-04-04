@@ -18,14 +18,12 @@ command -v starship &> /dev/null && eval "$(starship init zsh)"
 # Defer non-critical tool inits for faster startup
 # zsh-defer is loaded via antidote
 if (( $+functions[zsh-defer] )); then
-  zsh-defer -c '[[ -f ~/.iterm2_shell_integration.zsh ]] && source ~/.iterm2_shell_integration.zsh'
   zsh-defer -c 'command -v direnv &> /dev/null && eval "$(direnv hook zsh)"'
   zsh-defer -c 'command -v navi &> /dev/null && eval "$(navi widget zsh)"'
   zsh-defer -c 'command -v zoxide &> /dev/null && eval "$(zoxide init zsh)"'
   zsh-defer -c '[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && source ~/.config/tabtab/zsh/__tabtab.zsh'
 else
   # Fallback if zsh-defer not available
-  [[ -f ~/.iterm2_shell_integration.zsh ]] && source ~/.iterm2_shell_integration.zsh
   command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
   command -v navi &> /dev/null && eval "$(navi widget zsh)"
   command -v zoxide &> /dev/null && eval "$(zoxide init zsh)"
@@ -57,3 +55,5 @@ unsetopt share_history
 if $ZSH_ENABLE_PROFILING; then
   zprof
 fi
+
+export STM32_PRG_PATH=/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin
