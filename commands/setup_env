@@ -60,6 +60,13 @@ function setup_env {
   tmux set-environment -g TMUX_PLUGIN_MANAGER_PATH "$HOME/.tmux/plugins/" 2>/dev/null
   "$TPM_DIR/bin/install_plugins"
 
+  # Lazygit config (directory-level symlink)
+  einf "Linking Lazygit config"
+  if [ ! -L "$HOME/.config/lazygit" ]; then
+    backup_file "$HOME/.config/lazygit/config.yml"
+  fi
+  link "$DOTFILES_CONFIGS/lazygit" "$HOME/.config/lazygit"
+
   einf "Linking github configs"
   link $DOTFILES_SHELL/gitconfig ~/.gitconfig
   link $DOTFILES_SHELL/gitignore ~/.gitignore
