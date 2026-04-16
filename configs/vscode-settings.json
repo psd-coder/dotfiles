@@ -71,6 +71,12 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "workbench.colorTheme": "Plastic - deprioritised punctuation",
+  "workbench.editor.showTabs": "none",
+  "workbench.iconTheme": "file-icons",
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.svg": "default"
+  },
   "security.workspace.trust.untrustedFiles": "open",
   "redhat.telemetry.enabled": false,
   "[postcss]": {
@@ -79,6 +85,7 @@
   "[xml]": {
     "editor.defaultFormatter": "DotJoshJohnson.xml"
   },
-  "workbench.iconTheme": "file-icons",
-  "window.zoomLevel": 1.2
+  "window.zoomLevel": 1.2,
+  "typescript.experimental.useTsgo": true,
+  
 }
