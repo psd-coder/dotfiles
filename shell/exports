@@ -45,3 +45,4 @@ fi
 path_append "$HOME/.antigravity/antigravity/bin"
 path_append "$HOME/.local/bin"
 path_append /usr/local/bin/
+path_prepend "$HOME/.dotfiles/shell/scripts"
