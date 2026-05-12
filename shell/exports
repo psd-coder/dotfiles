@@ -37,6 +37,7 @@ if command -v brew &> /dev/null; then
   # GNU tools and other brew packages
   path_prepend "$BREW_PREFIX/opt/findutils/libexec/gnubin"
   path_prepend "$BREW_PREFIX/opt/coreutils/libexec/gnubin"
+  path_prepend "$BREW_PREFIX/opt/make/libexec/gnubin"
   path_prepend "$BREW_PREFIX/opt/ruby/bin"
   path_prepend "$BREW_PREFIX/opt/crowdin@3/bin"
 fi
