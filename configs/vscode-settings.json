@@ -61,6 +61,17 @@
   },
   "stylelint.packageManager": "pnpm",
   "redhat.telemetry.enabled": false,
+  "nodejs-testing.extensions": [
+    {
+      "extensions": [
+        "mjs",
+        "cjs",
+        "js",
+        "ts"
+      ],
+      "parameters": []
+    }
+  ],
   
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
