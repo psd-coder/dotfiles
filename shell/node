@@ -7,9 +7,9 @@ activate_mise_for_current_shell
 
 # Corepack aliases defined in shell/aliases
 export COREPACK_ENABLE_AUTO_PIN=0
-export PNPM_HOME="$HOME/Library/pnpm"
-path_prepend "$PNPM_HOME"
-if command -v pnpm &> /dev/null; then
-  path_prepend "$(pnpm global bin)"
-fi
-path_prepend "./node_modules/.bin"
+
+export PNPM_HOME="/Users/psdcoder/Users/psdcoder/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
