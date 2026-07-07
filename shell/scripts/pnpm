@@ -1,0 +1,6 @@
+#!/bin/sh
+# Real wrapper (not a shell alias) so `pnpm` resolves inside the
+# non-interactive `sh -c` that pnpm spawns for lifecycle scripts —
+# aliases aren't inherited there. Delegates to corepack, which honors
+# the packageManager pin.
+exec corepack pnpm "$@"

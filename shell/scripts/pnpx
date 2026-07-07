@@ -1,0 +1,3 @@
+#!/bin/sh
+# See ./pnpm for why this is a script and not a shell alias.
+exec corepack pnpx "$@"
