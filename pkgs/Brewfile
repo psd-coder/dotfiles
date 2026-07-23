@@ -35,7 +35,6 @@ brew "libnghttp3"
 brew "libngtcp2"
 brew "llmfit"
 brew "llvm"
-brew "llvm@20"
 brew "macos-trash", link: true
 brew "mas"
 brew "mise"

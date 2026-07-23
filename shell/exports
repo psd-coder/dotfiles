@@ -26,12 +26,12 @@ if command -v brew &> /dev/null; then
   BREW_PREFIX="$(brew --prefix)"
 
   # LLVM
-  if [[ -d "$BREW_PREFIX/opt/llvm@20" ]]; then
-    export LLVM_CONFIG="$BREW_PREFIX/opt/llvm@20/bin/llvm-config"
-    export LDFLAGS="-L/$BREW_PREFIX/opt/llvm@20/lib"
-    export CPPFLAGS="-I/$BREW_PREFIX/opt/llvm@20/include"
-    export CMAKE_PREFIX_PATH="$BREW_PREFIX/opt/llvm@20"
-    path_prepend "$BREW_PREFIX/opt/llvm@20/bin"
+  if [[ -d "$BREW_PREFIX/opt/llvm" ]]; then
+    export LLVM_CONFIG="$BREW_PREFIX/opt/llvm/bin/llvm-config"
+    export LDFLAGS="-L$BREW_PREFIX/opt/llvm/lib"
+    export CPPFLAGS="-I$BREW_PREFIX/opt/llvm/include"
+    export CMAKE_PREFIX_PATH="$BREW_PREFIX/opt/llvm"
+    path_prepend "$BREW_PREFIX/opt/llvm/bin"
   fi
 
   # GNU tools and other brew packages
@@ -44,5 +44,6 @@ fi
 
 path_append "$HOME/.antigravity/antigravity/bin"
 path_append "$HOME/.local/bin"
+path_append "$HOME/.cargo/bin"
 path_append /usr/local/bin/
 path_prepend "$HOME/.dotfiles/shell/scripts"
