@@ -21,6 +21,9 @@ export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
 # Setup editor
 export EDITOR='vim';
 
+export GOPATH="$HOME/go"
+path_append "$GOPATH/bin"
+
 # Homebrew-dependent paths and configs
 if command -v brew &> /dev/null; then
   BREW_PREFIX="$(brew --prefix)"
