@@ -25,12 +25,14 @@
   },
   "explorer.autoReveal": false,
   "explorer.confirmDragAndDrop": false,
+  "diffEditor.ignoreTrimWhitespace": false,
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 3000,
   "files.insertFinalNewline": true,
   "files.associations": {
     "*.css": "postcss"
   },
+  "docker.extension.enableComposeLanguageServer": false,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "emmet.includeLanguages": {
     "postcss": "css"
@@ -71,6 +73,14 @@
       ],
       "parameters": []
     }
+  ],
+  "yaml.disableSchemaDetection": [
+    "**/.github/workflows/*.yml",
+    "**/.github/workflows/*.yaml",
+    "**/.gitea/workflows/*.yml",
+    "**/.gitea/workflows/*.yaml",
+    "**/.forgejo/workflows/*.yml",
+    "**/.forgejo/workflows/*.yaml"
   ],
   
   "[html]": {
