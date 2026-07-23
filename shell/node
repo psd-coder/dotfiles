@@ -5,11 +5,30 @@ export NODE_REPL_HISTORY_SIZE='32768'; # Allow 32^3 entries; default is 1000
 # mise (universal version manager)
 activate_mise_for_current_shell
 
-# Corepack aliases defined in shell/aliases
-export COREPACK_ENABLE_AUTO_PIN=0
+# mise activate only warns when a project pins a node version that is not
+# installed, then silently falls back to whatever node is next on PATH.
+# Install the missing version on cd instead.
+if [ -n "${ZSH_VERSION:-}" ]; then
+  _mise_autoinstall() {
+    command -v mise &> /dev/null || return 0
+    if mise ls --current --missing 2> /dev/null | grep -q .; then
+      mise install
+    fi
+  }
+  autoload -Uz add-zsh-hook
+  add-zsh-hook chpwd _mise_autoinstall
+fi
 
+# pnpm global bin dir (pnpm >= 10 layout: launchers live in $PNPM_HOME/bin)
 export PNPM_HOME="$HOME/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
-  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
-esac
+path_prepend_force "$PNPM_HOME/bin"
+
+# Prepend the package-manager wrappers (shell/scripts/{pnpm,npm,yarn,...})
+# LAST so they land ahead of mise's node bin dir and $PNPM_HOME/bin —
+# otherwise node's bundled npm/npx would shadow the corepack wrappers. Force
+# so the priority survives mise re-fronting its bin dir on shell re-source.
+path_prepend_force "$HOME/.dotfiles/shell/scripts"
+
+# Route all Node package managers through corepack; wrappers in shell/scripts.
+export COREPACK_ENABLE_AUTO_PIN=0
+export COREPACK_ENABLE_DOWNLOAD_PROMPT=0

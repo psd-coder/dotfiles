@@ -8,9 +8,18 @@ DOTFILES_SHELL=$DOTFILES/shell
 DOTFILES_CONFIGS=$DOTFILES/configs
 DOTFILES_PACKAGES=$DOTFILES/pkgs
 
+# Used as a command (`if $IS_MACOS; then`), so it must hold true/false. Left
+# undefined it expands to an empty command, which zsh treats as success — so
+# every platform check silently took the macOS branch.
+if [ "$(uname -s)" = "Darwin" ]; then
+  IS_MACOS=true
+else
+  IS_MACOS=false
+fi
+
 # Directory / File specific
 BREW_BUNDLE_FILE=$DOTFILES_PACKAGES/Brewfile
-NPM_PACKAGES=$DOTFILES_PACKAGES/npm
+PNPM_PACKAGES=$DOTFILES_PACKAGES/pnpm
 
 # Logging
 WARN='\033[0;31m'

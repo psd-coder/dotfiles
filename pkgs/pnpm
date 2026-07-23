@@ -1,0 +1,17 @@
+@fission-ai/openspec
+@google/gemini-cli
+@openai/codex
+@typescript/analyze-trace
+actions-up
+codemod
+http-server
+netlify-cli
+node-static
+opencode-ai
+skills
+tsc-watch
+tsx
+turbo
+typescript
+typescript-language-server
+vercel

@@ -25,6 +25,9 @@ function setup_node {
   einf "Installing latest LTS node via mise"
   mise use -g node@lts
 
+  einf "Installing remaining global mise tools (corepack, etc.)"
+  mise install
+
   if ! type "pnpm" > /dev/null 2>&1; then
     einf "Installing pnpm"
     corepack install -g pnpm
@@ -33,7 +36,7 @@ function setup_node {
   fi
 
   einf "Installing global NPM packages"
-  cat $NPM_PACKAGES | \
+  cat $PNPM_PACKAGES | \
   while read PACKAGE; do
     printf "Installing $PACKAGE... "
     pnpm add -g $PACKAGE

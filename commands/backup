@@ -9,4 +9,18 @@ function backup {
   brew bundle dump --file="$BREW_BUNDLE_FILE" --force
 }
 
+function backup_pnpm {
+  einf "Dumping global pnpm packages"
+  # link: deps are machine-local and not restorable on a fresh install
+  pnpm ls -g --json | node -e '
+    const projects = JSON.parse(require("fs").readFileSync(0, "utf8"));
+    const deps = Object.entries(projects[0]?.dependencies ?? {})
+      .filter(([, info]) => !String(info.version).startsWith("link:"))
+      .map(([name]) => name)
+      .sort();
+    console.log(deps.join("\n"));
+  ' > "$PNPM_PACKAGES"
+}
+
 askdo backup "Collect brew bundle?"
+askdo backup_pnpm "Dump global pnpm packages?"

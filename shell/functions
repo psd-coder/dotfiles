@@ -24,6 +24,22 @@ path_prepend() {
   done
 }
 
+# Like path_prepend, but moves the dir to the very front even when it is
+# already in PATH. Needed to keep priority ahead of tools (e.g. mise) that
+# re-front their own bin dirs whenever the shell config is re-sourced.
+path_prepend_force() {
+  for ARG in "$@"
+  do
+    if [ -d "$ARG" ]; then
+        PATH=":$PATH:"
+        PATH="${PATH//:$ARG:/:}"
+        PATH="${PATH#:}"
+        PATH="${PATH%:}"
+        PATH="$ARG${PATH:+":$PATH"}"
+    fi
+  done
+}
+
 grep_projects() {
   grep -i -R --exclude-dir={node_modules,build,public,static,webpack,tmp,.cache,dist,dql,.local_data,jspm_packages,.yarn,vendor,.next,storybook-static} --include={\*.js,\*.jsx,\*.ts,\*.tsx} $1 ~/projects
 }

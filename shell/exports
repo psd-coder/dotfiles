@@ -49,4 +49,5 @@ path_append "$HOME/.antigravity/antigravity/bin"
 path_append "$HOME/.local/bin"
 path_append "$HOME/.cargo/bin"
 path_append /usr/local/bin/
-path_prepend "$HOME/.dotfiles/shell/scripts"
+# shell/scripts is prepended in shell/node (after mise activation) so the
+# package-manager wrappers there sit ahead of mise's node bin dir.
