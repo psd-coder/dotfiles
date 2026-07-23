@@ -19,7 +19,7 @@
     autocrlf            = input
     safecrlf            = true
     ignorecase          = false
-	pager               =  less -R -F
+	pager               = delta
 
 [init]
     defaultBranch       = main
@@ -27,7 +27,11 @@
 [alias]
     st                  = status -b
     ci                  = commit
+    hf                  = history fixup
+    hr                  = history reword
+    hs                  = history split
     fixlast             = commit --amend --no-edit
+    fl                  = commit --amend --no-edit
     fixup               = commit --fixup
     br                  = branch
     co                  = checkout
@@ -102,3 +106,18 @@
 
 [diff]
     algorithm           = histogram
+[merge "weave"]
+	name                = Entity-level semantic merge
+	driver              = weave-driver %O %A %B %L %P
+[interactive]
+	diffFilter          = delta --color-only
+[delta]
+    true-color          = always
+    navigate            = true
+    dark                = true
+    theme               = Catppuccin Mocha
+    line-numbers        = true
+    hyperlinks          = true
+    hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+[merge]
+    conflictStyle       = zdiff3

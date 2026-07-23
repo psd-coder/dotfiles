@@ -1,129 +1,250 @@
-tap "crowdin/crowdin"
-tap "homebrew-ffmpeg/ffmpeg"
+tap "homebrew-ffmpeg/ffmpeg", trusted: true
 tap "oven-sh/bun"
 tap "tw93/tap"
+tap "umputun/apps"
+# Run your GitHub Actions locally
 brew "act"
-brew "antidote"
-brew "btop"
-brew "cloudflared"
-brew "cmake"
-brew "coreutils"
-brew "direnv"
-brew "dive"
-brew "exiftool"
-brew "findutils"
-brew "gh"
-brew "git"
-brew "git-lfs"
-brew "openssl@3"
-brew "unbound"
-brew "gnutls"
-brew "gnupg"
-brew "go"
-brew "netpbm"
-brew "pango"
-brew "graphviz"
-brew "htop"
-brew "httpie"
-brew "libheif"
-brew "imagemagick"
-brew "languagetool", restart_service: :changed
-brew "lazygit"
-brew "libarchive"
-brew "libass"
+# HTTP/3 library written in C
 brew "libnghttp3"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# IETF QUIC protocol implementation
 brew "libngtcp2"
+# Browser automation CLI for AI agents
+brew "agent-browser"
+# Plugin manager for zsh, inspired by antigen and antibody
+brew "antidote"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
+# Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript
+brew "clang-format"
+# Cloudflare Tunnel client (formerly Argo Tunnel)
+brew "cloudflared"
+# Cross-platform make
+brew "cmake"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Load/unload environment variables based on $PWD
+brew "direnv"
+# Tool for exploring each layer in a docker image
+brew "dive"
+# Convert text between DOS, UNIX, and Mac formats
+brew "dos2unix"
+# Perl lib for reading and writing EXIF metadata
+brew "exiftool"
+# Collection of GNU find, xargs, and locate
+brew "findutils"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Git extension for versioning large files
+brew "git-lfs"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Image manipulation
+brew "netpbm"
+# Framework for layout and rendering of i18n text
+brew "pango"
+# Graph visualization software from AT&T and Bell Labs
+brew "graphviz"
+# Library for communicating with USB and Bluetooth HID devices
+brew "hidapi"
+# Improved top (interactive process viewer)
+brew "htop"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
+# User-friendly cURL replacement (command-line HTTP client)
+brew "httpie"
+# ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
+brew "libheif"
+# Tools and libraries to manipulate images in select formats
+brew "imagemagick"
+# Style and grammar checker
+brew "languagetool", restart_service: :changed
+# Simple terminal UI for git commands
+brew "lazygit"
+# Multi-format archive and compression library
+brew "libarchive"
+# Subtitle renderer for the ASS/SSA subtitle format
+brew "libass"
+# Find what models run on your hardware
 brew "llmfit"
+# Next-gen compiler infrastructure
 brew "llvm"
+# Move files and folders to the trash
 brew "macos-trash", link: true
+# Utility for directing compilation
+brew "make"
+# Mac App Store command-line interface
 brew "mas"
+# Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# Deep clean and optimize your Mac
 brew "mole"
+# Port scanning utility for large networks
 brew "nmap"
+# Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
+# Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# CLI proxy to minimize LLM token consumption
+brew "rtk"
+# Powerful, clean, object-oriented scripting language
 brew "ruby"
+# Safe, concurrent, practical language
 brew "rust"
+# Cross-shell prompt for astronauts
 brew "starship"
+# Send macOS User Notifications from the command-line
 brew "terminal-notifier"
+# OCR (Optical Character Recognition) engine
 brew "tesseract"
+# Official tldr client written in Rust
 brew "tlrc"
+# Terminal multiplexer
 brew "tmux"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
+# Vi 'workalike' with many additional features
 brew "vim"
+# Entity-level semantic merge driver for Git using tree-sitter
+brew "weave"
+# Internet file retriever
 brew "wget"
+# Tools for the WireGuard secure network tunnel
 brew "wireguard-tools"
+# Shell extension to navigate your filesystem faster
 brew "zoxide"
+# Play, record, convert, and stream audio and video
 brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-fdk-aac", "with-rav1e"]
-brew "oven-sh/bun/bun"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun", trusted: true
+# TUI for reviewing diffs, files, and documents with inline annotations
+brew "umputun/apps/revdiff", trusted: true
+# Password manager that keeps all passwords secure behind one password
 cask "1password"
+# Command-line interface for 1Password
 cask "1password-cli"
+# View, print, and comment on PDF documents
 cask "adobe-acrobat-reader"
+# Allows connection to a computer remotely
 cask "anydesk"
+# Web browser focusing on privacy
+cask "brave-browser"
+# Server and cloud storage browser
 cask "cyberduck"
+# Browser for SQLite databases
 cask "db-browser-for-sqlite"
+# Secure and reliable decentralised instant messenger
+cask "deltachat"
+# Voice and text chat software
 cask "discord"
+# App to build and share containerised applications and microservices
 cask "docker-desktop"
+# Client for the Dropbox cloud storage service
 cask "dropbox"
+# Book reader
 cask "fbreader"
+# Web browser
 cask "firefox"
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
+# Web browser
 cask "google-chrome"
+# Open-source video transcoder
 cask "handbrake-app"
+# Utility to hide menu bar items
 cask "hiddenbar"
+# Tool to optimise images to a smaller size
 cask "imageoptim"
+# Open-source screen recorder built with web technology
 cask "kap"
+# Keyboard customiser
 cask "karabiner-elements"
+# File archiver
 cask "keka"
+# End-to-end encryption software
 cask "keybase"
+# Open-source keystroke visualiser
 cask "keycastr"
-cask "logitech-options"
+# Software for Logitech devices
+cask "logi-options+"
+# Tool to control external monitor brightness & volume
 cask "monitorcontrol"
+# Calendar for professionals and teams
 cask "notion-calendar"
+# Open-source software for live streaming and screen recording
 cask "obs"
+# Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Desktop virtualization software
 cask "parallels@17"
+# Control your tools with a few keystrokes
 cask "raycast"
+# Tool to reverse the direction of scrolling
 cask "scroll-reverser"
+# Utilise mouse side navigation buttons
 cask "sensiblesidebuttons"
+# Video editor
 cask "shotcut"
+# Team communication and collaboration software
 cask "slack"
+# Music streaming service
 cask "spotify"
+# System monitor for the menu bar
 cask "stats"
+# Video game digital distribution service
 cask "steam"
+# Quicklook extension for source files
 cask "syntax-highlight"
+# Messaging app with a focus on speed and security
 cask "telegram"
+# Unpacks archive files
 cask "the-unarchiver"
+# Utility to hide the notch
 cask "topnotch"
+# Open-source BitTorrent client
 cask "transmission"
+# Free and open-source OpenVPN client
 cask "tunnelblick"
+# Unicode keyboard layout editor
+cask "ukelele"
+# Tool to invert scroll direction for physical scroll wheels
 cask "unnaturalscrollwheels"
+# Virtual machines UI using QEMU
 cask "utm"
+# Virtualization tool
 cask "virtualbuddy"
+# Open-source code editor
 cask "visual-studio-code"
+# Multimedia player
 cask "vlc"
+# Native desktop client for WhatsApp
 cask "whatsapp"
+# Video communication and virtual meeting platform
 cask "zoom"
-mas "Developer", id: 640199958
-mas "GarageBand", id: 682658836
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Redict", id: 470114583
-mas "WireGuard", id: 1451685025
-mas "Xcode", id: 497799835
 vscode "adrianwilczynski.alpine-js-intellisense"
 vscode "alefragnani.bookmarks"
 vscode "anjali.clipboard-history"
 vscode "ardenivanov.svelte-intellisense"
 vscode "astro-build.astro-vscode"
 vscode "bierner.markdown-preview-github-styles"
+vscode "bokuweb.vscode-ripgrep"
 vscode "bradlc.vscode-tailwindcss"
 vscode "cardinal90.multi-cursor-case-preserve"
 vscode "christian-kohler.path-intellisense"
 vscode "codewithshashank.svg-to-jsx"
 vscode "coenraads.disableligatures"
+vscode "connor4312.nodejs-testing"
 vscode "davidlday.languagetool-linter"
 vscode "dbaeumer.vscode-eslint"
 vscode "denoland.vscode-deno"
@@ -132,7 +253,6 @@ vscode "dotjoshjohnson.xml"
 vscode "editorconfig.editorconfig"
 vscode "esbenp.prettier-vscode"
 vscode "file-icons.file-icons"
-vscode "github.copilot-chat"
 vscode "github.remotehub"
 vscode "github.vscode-github-actions"
 vscode "github.vscode-pull-request-github"
@@ -157,13 +277,16 @@ vscode "ms-vscode-remote.remote-containers"
 vscode "ms-vscode.makefile-tools"
 vscode "ms-vscode.remote-repositories"
 vscode "ms-vscode.test-adapter-converter"
+vscode "ms-vscode.vscode-chat-customizations-evaluations"
 vscode "ms-vscode.vscode-js-profile-flame"
 vscode "mxsdev.typescript-explorer"
 vscode "naumovs.color-highlight"
 vscode "nhoizey.gremlins"
+vscode "octref.vetur"
 vscode "orta.vscode-twoslash-queries"
 vscode "oxc.oxc-vscode"
 vscode "paulshen.paul-typescript-toolkit"
+vscode "quanzaiyu.vscode-vue-pug-enhanced"
 vscode "qwtel.sqlite-viewer"
 vscode "redhat.vscode-yaml"
 vscode "reduckted.vscode-gitweblinks"
@@ -189,5 +312,8 @@ vscode "wix.vscode-import-cost"
 vscode "yoavbls.pretty-ts-errors"
 vscode "zignd.html-css-class-completion"
 go "golang.org/x/tools/gopls"
+go "github.com/Bakaface/sortie/cmd/sortie"
 go "honnef.co/go/tools/cmd/staticcheck"
+cargo "fontspector"
 cargo "swc_cli"
+npm "corepack"
