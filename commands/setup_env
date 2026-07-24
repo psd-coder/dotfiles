@@ -62,10 +62,11 @@ function setup_env {
 
   # Lazygit config (directory-level symlink)
   einf "Linking Lazygit config"
-  if [ ! -L "$HOME/.config/lazygit" ]; then
-    backup_file "$HOME/.config/lazygit/config.yml"
+  if [ ! -L "$HOME/Library/Application Support/lazygit" ]; then
+    backup_file "$HOME/Library/Application Support/lazygit/config.yml"
   fi
-  link "$DOTFILES_CONFIGS/lazygit" "$HOME/.config/lazygit"
+
+  link "$DOTFILES_CONFIGS/lazygit" "$HOME/Library/Application Support/lazygit"
 
   einf "Linking github configs"
   link $DOTFILES_SHELL/gitconfig ~/.gitconfig
