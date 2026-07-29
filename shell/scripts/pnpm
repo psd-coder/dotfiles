@@ -2,5 +2,14 @@
 # Real wrapper (not a shell alias) so `pnpm` resolves inside the
 # non-interactive `sh -c` that pnpm spawns for lifecycle scripts —
 # aliases aren't inherited there. Delegates to corepack, which honors
-# the packageManager pin.
+# the packageManager pin except for global commands.
+for arg in "$@"; do
+  case "$arg" in
+    -g|--global)
+      export COREPACK_ENABLE_PROJECT_SPEC=0
+      break
+      ;;
+  esac
+done
+
 exec corepack pnpm "$@"
