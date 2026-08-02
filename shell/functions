@@ -40,8 +40,21 @@ path_prepend_force() {
   done
 }
 
+# Case-insensitive search over JS/TS sources in ~/projects.
+# Drops matches on very long lines: those are minified/bundled output that
+# survived the directory filters, and a single hit dumps the whole bundle.
+# Override the cutoff with GREP_PROJECTS_MAX_LINE.
 grep_projects() {
-  grep -i -R --exclude-dir={node_modules,build,public,static,webpack,tmp,.cache,dist,dql,.local_data,jspm_packages,.yarn,vendor,.next,storybook-static} --include={\*.js,\*.jsx,\*.ts,\*.tsx} $1 ~/projects
+  local max_line="${GREP_PROJECTS_MAX_LINE:-500}"
+  local color=never
+  [ -t 1 ] && color=always
+
+  rg --ignore-case --no-heading --line-number --color="$color" \
+    --glob '*.{js,jsx,ts,tsx}' \
+    --glob '!*.min.*' --glob '!*.bundle.*' --glob '!*.map' \
+    --glob '!**/{node_modules,build,public,static,webpack,tmp,.cache,dist,dql,.local_data,jspm_packages,.yarn,vendor,.next,storybook-static}/**' \
+    "$1" ~/projects |
+    awk -v max="$max_line" 'length($0) <= max'
 }
 
 # Removes Git branches that have been merged into master.
