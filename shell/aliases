@@ -8,6 +8,7 @@ alias ..="cd .."
 # Productivity
 alias c="code ."
 alias cc="claude"
+alias oc="opencode"
 alias g="git"
 alias ls="ls -la"
 alias c2="awk '{ print \$2 }'"
