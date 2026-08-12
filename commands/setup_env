@@ -18,6 +18,8 @@ function setup_env {
   link $DOTFILES_SHELL/bash_profile ~/.bash_profile
   link $DOTFILES_SHELL/bashrc ~/.bashrc
   link $DOTFILES_SHELL/zshrc ~/.zshrc
+  link $DOTFILES_SHELL/zshenv ~/.zshenv
+  link $DOTFILES_SHELL/agent_git_signing ~/.agent_git_signing.sh
   link $DOTFILES_SHELL/starship.toml ~/.config/starship.toml
 
   einf "Linking ssh"

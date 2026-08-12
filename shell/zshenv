@@ -1,0 +1,3 @@
+# Read by every zsh, interactive or not. Keep it to things a non-interactive
+# shell needs, because .zshrc never runs for one.
+source $HOME/.agent_git_signing.sh

@@ -1,0 +1,9 @@
+#!/bin/sh
+# git's gpg.ssh.program for non-interactive shells. See shell/agent_git_signing.
+#
+# ssh-keygen asks the SSH agent to sign whenever SSH_AUTH_SOCK is set, and
+# 1Password's agent errors or waits for a click in its window when it is asked
+# for a key it does not hold. Dropping the variable keeps the signature local and
+# instant. Everything else in the session keeps the agent, so ssh and git push
+# still authenticate through 1Password.
+exec env -u SSH_AUTH_SOCK ssh-keygen "$@"

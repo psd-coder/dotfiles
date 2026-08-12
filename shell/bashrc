@@ -3,3 +3,4 @@ source $HOME/.functions.sh
 source $HOME/.exports.sh
 source $HOME/.node.sh
 source $HOME/.aliases.sh
+source $HOME/.agent_git_signing.sh

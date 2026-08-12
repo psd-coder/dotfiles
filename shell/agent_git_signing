@@ -1,0 +1,37 @@
+# Sign git commits with a key that needs no GUI, in non-interactive shells only.
+#
+# Coding agents run their shell non-interactively; a terminal is interactive.
+# 1Password's SSH agent can only sign while the app is unlocked, which needs the
+# GUI, so an agent working while nobody is at the machine cannot commit. This key
+# is a plain file, so it always works.
+#
+# Own commits still go through 1Password. `git log --format='%GK'` shows
+# which key signed a commit, so the two stay distinguishable.
+#
+# GIT_CONFIG_* beats repo-local config and every child process inherits it, so
+# one export covers every git call in the session, subagents included. It is left
+# alone when something else already set GIT_CONFIG_COUNT.
+#
+# The signer is a wrapper, not ssh-keygen itself, because ssh-keygen would ask
+# 1Password's agent to sign and hang there. See scripts/git-sign-local.
+
+_agent_signing_key="$HOME/.ssh/agent-git-signing"
+_agent_signing_program="$HOME/.dotfiles/shell/scripts/git-sign-local"
+
+case $- in
+  *i*) ;;
+  *)
+    if [ -f "$_agent_signing_key" ] && [ -x "$_agent_signing_program" ] &&
+      [ -z "${GIT_CONFIG_COUNT:-}" ]; then
+      export GIT_CONFIG_COUNT=3
+      export GIT_CONFIG_KEY_0=gpg.format
+      export GIT_CONFIG_VALUE_0=ssh
+      export GIT_CONFIG_KEY_1=user.signingkey
+      export GIT_CONFIG_VALUE_1="$_agent_signing_key"
+      export GIT_CONFIG_KEY_2=gpg.ssh.program
+      export GIT_CONFIG_VALUE_2="$_agent_signing_program"
+    fi
+    ;;
+esac
+
+unset _agent_signing_key _agent_signing_program
