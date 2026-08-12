@@ -3,3 +3,4 @@
 .envrc
 .claude/settings.local.json
 CLAUDE.local.md
+AGENTS.override.md
